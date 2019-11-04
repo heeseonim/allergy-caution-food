@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>회원가입</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="search.js"></script>
+
+<link rel="stylesheet" href="top.css">
+
+</head>
+
+<body>
+	<div id="login_form_white"></div>
+
+	<div id="login_form" class="login container">
+		<form class="form-horizontal" action="#">
+			<div class="login_title">
+				<h3 class="high_light">로그인</h3>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label for="inputid3" class="col-sm-3 control-label">아이디</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="inputid3"
+						placeholder="ID">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-3 control-label">비밀번호</label>
+				<div class="col-sm-9">
+					<input type="password" class="form-control" id="inputPassword3"
+						placeholder="Password">
+				</div>
+			</div>
+
+			<div class="form-group" id="login_buttons">
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="submit" class="login_form_button">로그인</button>
+					</div>
+				</div>
+				<div style="height: 10px"></div>
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="button" class="login_form_button"
+							onClick="location.href='./signup.html'">회원가입</button>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+	<div>
+		<div id="back"></div>
+
+		<div id="main" class="container">
+			<div class="row">
+				<div id="status" class="col-md-12">
+					<div class="top_button">
+						<span class="glyphicon glyphicon-list"></span> <a
+							href="sitemap.html">사이트맵</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a
+							href="searchmember.html">회원검색</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a
+							href="modify.html">회원정보</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-ok"></span> <a id="login"
+							href="#">로그인</a>
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="menu_nav" class="col-md-12">
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a id="brand" class="navbar-brand" href="./index.html"> <b>SSAFY</b>
+								</a>
+							</div>
+
+							<div class="collapse navbar-collapse"
+								id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a href="./notify.html">공지사항</a></li>
+									<li><a href="./foodsearch.html">상품정보</a></li>
+									<li class="divider"></li>
+								</ul>
+								<form class="navbar-form navbar-right" role="search">
+									<div class="form-group">
+										<input id="word" type="text" class="form-control"
+											placeholder="검색 단어">
+									</div>
+									<button id="commit" type="button" class="btn btn-default">찾기</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown"><a id="cat" href="#"
+										class="dropdown-toggle" data-toggle="dropdown" role="button"
+										aria-expanded="false">검색조건<span class="caret"></span></a>
+										<ul id="drops" class="dropdown-menu" role="menu"
+											aria-labelledby="dropdownMenu">
+											<li class="c1"><a href="#">전체</a></li>
+											<li class="divider"></li>
+											<li class="c2"><a href="#">상품명</a></li>
+											<li class="c4"><a href="#">원료</a></li>
+											<li class="divider"></li>
+											<li class="c5"><a href="#">영양성분</a></li>
+											
+										</ul>
+								</ul>
+
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+
+			<div id="title">
+				<div class="container">
+					<div id="big_title" class="">
+						<br>
+						<h1 class="sharp_font">
+							WHAT WE <b class="high_light">PROVIDE</b>
+						</h1>
+						<h2>건강한 삶을 위한 먹거리 프로젝트</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="sign_up">
+		<div id="main" class="container">
+			<form id="my_form" action="#">
+				<H2>회원정보 수정</H2>
+				
+				<table class="table">
+					<tbody>
+						<tr>
+							<td>아이디<span class="blue">*</span></td>
+							<td><input type="text"/></td>
+						</tr>
+						<tr>
+							<td>비밀번호<span class="blue">*</span></td>
+							<td><input type="password" placeholder="영문 숫자 포함 6자리 이상"/></td>
+						</tr>
+						<tr>
+							<td>이름<span class="blue">*</span></td>
+							<td><input type="text" placeholder="User Name"/></td>
+						</tr>
+						<tr>
+							<td>주소<span class="blue">*</span></td>
+							<td><input type="text" placeholder="Address"/></td>
+						</tr>
+						<tr>
+							<td>전화번호<span class="blue">*</span></td>
+							<td><input type="text" placeholder="010-XXXX-XXXX"/></td>
+						</tr>
+						<tr>
+							<td>알레르기<span class="blue">*</span></td>
+							<td>
+								<fieldset>
+									<legend>Check</legend>
+									<input type="checkbox" id="daedu">
+									<label for="daedu">대두</label>
+									<input type="checkbox" id="peanut">
+									<label for="peanut">땅콩</label>
+									<input type="checkbox" id="milk">
+									<label for="milk">우유</label>
+									<input type="checkbox" id="crab">
+									<label for="crab">게</label>
+									<br>
+									<input type="checkbox" id="shrimp">
+									<label for="shrimp">새우</label>
+									<input type="checkbox" id="tuna">
+									<label for="tuna">참치</label>
+									<input type="checkbox" id="salmon">
+									<label for="salmon">연어</label>
+									<input type="checkbox" id="ssuk">
+									<label for="ssuk">쑥</label>
+									<br>
+									<input type="checkbox" id="cow">
+									<label for="cow">소고기</label>
+									<input type="checkbox" id="chicken">
+									<label for="chicken">닭고기</label>
+									<input type="checkbox" id="pig">
+									<label for="pig">돼지고기</label>
+									<br>
+									<input type="checkbox" id="peach">
+									<label for="peach">복숭아</label>
+									<input type="checkbox" id="flower">
+									<label for="flower">민들레</label>
+									<input type="checkbox" id="egg_white">
+									<label for="egg_white">계란흰자</label>
+									<br>
+								</fieldset>								
+								
+								<input type="button" value="등록"/>
+								<input type="button" value="회원탈퇴"/>
+							</td>
+						</tr>
+						
+					
+					</tbody>
+				</table>
+				
+			</form>
+		</div>
+	</div>
+</body>
+<script>
+	$("#login").on("click", ()=>{
+		$("#login_form").css("display", "block");						
+		$("#login_form_white").css("display", "block");						
+	})
+	
+	$("#login_form_white").on("click", ()=>{
+		$("#login_form").css("display", "none");			
+		$("#login_form_white").css("display", "none");						
+	})
+</script>
+</html>

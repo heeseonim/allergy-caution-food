@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>안전 먹거리</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script
+	src="search.js"></script>
+
+<link rel="stylesheet" href="top.css">
+
+<script>
+var cat = "전체";
+var word = "";
+
+function loadDoc() {
+    var req = new XMLHttpRequest();
+    var req2 = new XMLHttpRequest();
+    req.open("GET", "foodInfo.xml", true);
+    req.send();
+    req2.open("GET", "FoodNutritionInfo.xml", true);
+    req2.send();
+    
+    req.onreadystatechange = function() {
+        if (req.readyState == 4 && req.status == 200) {
+            if (req2.readyState == 4 && req2.status == 200) {
+        		domTest(req, req2);
+            }
+       	}
+    };   
+    req2.onreadystatechange = function() {
+        if (req.readyState == 4 && req.status == 200) {
+            if (req2.readyState == 4 && req2.status == 200) {
+        		domTest(req, req2);
+            }
+       	}
+    };   
+    
+}
+
+function domTest(xml, xml2) {
+    var xmlDoc = xml.responseXML;
+    var xmlDoc2 = xml2.responseXML;
+    
+    console.log(xmlDoc);
+    console.log(xmlDoc2);
+    
+    let str="";
+    let foodNodes = xmlDoc.getElementsByTagName("food");
+    let foodNodes2 = xmlDoc2.getElementsByTagName("item");
+	for(let i=0; i<foodNodes.length; i++) {
+		let foodNode = foodNodes[i];
+		console.log(i, foodNode);
+	    let codeNode = foodNode.getElementsByTagName("code")[0].firstChild.data;
+	    let nameNode = foodNode.getElementsByTagName("name")[0].firstChild.data;
+	    let makerNode = foodNode.getElementsByTagName("maker")[0].firstChild.data;
+	    let materialNode = foodNode.getElementsByTagName("material")[0].firstChild.data;
+	    let imageNode = foodNode.getElementsByTagName("image")[0].firstChild.data;
+
+	    let foodNode2 = foodNodes2[i];
+	    let caloryNode = foodNode2.getElementsByTagName("NUTR_CONT1")[0].firstChild.data;
+	    let carbonNode = foodNode2.getElementsByTagName("NUTR_CONT2")[0].firstChild.data;
+	    let proteinNode = foodNode2.getElementsByTagName("NUTR_CONT3")[0].firstChild.data;
+	    let fatNode = foodNode2.getElementsByTagName("NUTR_CONT4")[0].firstChild.data;
+	    let sugarNode = foodNode2.getElementsByTagName("NUTR_CONT5")[0].firstChild.data;
+	    let natNode = foodNode2.getElementsByTagName("NUTR_CONT6")[0].firstChild.data;
+	    let coleNode = foodNode2.getElementsByTagName("NUTR_CONT7")[0].firstChild.data;
+	    let pfatNode = foodNode2.getElementsByTagName("NUTR_CONT8")[0].firstChild.data;
+	    let transfatNode = foodNode2.getElementsByTagName("NUTR_CONT9")[0].firstChild.data;
+	    
+	    let printsw = 0;
+	    
+	    console.log(nameNode, word);
+	    
+	    if(word=="null"){
+	    	printsw=1;
+	    }
+	    if(word==0){
+	    	printsw=1;
+	    }
+	    
+	    if(cat=="전체"){
+	    	if(nameNode.includes(word)){
+	    		printsw = 1;
+	    	}
+    		if(materialNode.includes(word)){
+    			printsw = 1;
+    		}
+	    }else if(cat=="상품명"){
+	    	if(nameNode.includes(word)){
+	    		printsw = 1;
+	    	}
+	    }else if(cat=="원료"){
+    		if(materialNode.includes(word)){
+    			printsw = 1;
+    		}
+	    }else if(cat=="영양성분"){
+	    	if("탄수화물".includes(word)){
+	    		if(carbonNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("단백질".includes(word)){
+	    		if(proteinNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("지방".includes(word)){
+	    		if(fatNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("당분".includes(word)){
+	    		if(sugarNode != 0){
+	    			alert();
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("나트륨".includes(word)){
+	    		if(natNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("콜레스테롤".includes(word)){
+	    		if(coleNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    	if("포화지방".includes(word)){
+	    		if(pfatNode != 0){
+		    		printsw = 1;
+	    		}
+
+	    	}
+	    	if("트랜스지방".includes(word)){
+	    		if(transNode != 0){
+		    		printsw = 1;
+	    		}
+	    	}
+	    }
+	    
+	    let table1 = document.getElementById("food_tbody");
+        // tr 개체를 얻어와 속성값을 조절한다.
+        let tr = document.createElement("tr");
+        tr.setAttribute("bgColor", "#FFFFFF"); // 배경색
+        tr.setAttribute("height", "30"); // 높이
+        
+        var td1 = document.createElement("td");
+        td1.width='210px';
+        imageNode= "<img src=./"+imageNode+" width='200px' height='200px' onclick='javascript:viewinfo(\""+ nameNode +"\")'/>";
+        td1.innerHTML = imageNode;
+        var td2 = document.createElement("td");
+        td2.innerHTML = "<span class='high_light'><b>"+nameNode+"</b></span>&nbsp;"+makerNode+"<hr>"+materialNode;
+ 
+        if(printsw==1){
+            tr.appendChild(td1);
+            tr.appendChild(td2);        	
+            // 입력된값을 넣은 tr 개체를 추가한다.
+            $('#food_tbody').append(tr);	
+        }
+
+	}
+}
+
+$(document).ready(function(){
+	cat = decodeURIComponent($.urlParam('cat'));
+	word = decodeURIComponent($.urlParam('word'));
+	loadDoc();
+});
+
+</script>
+
+<style>
+.table>tbody+tbody {
+	border-top: none;
+}
+
+.table>tbody>tr>td {
+	background: #ffffff;
+	vertical-align: middle;
+	padding: 0px;
+	border-top: none;
+	border-left: 0px solid #fafafa;
+	border-right: 0px solid #fafafa;
+	border-top: 0px solid #fafafa;
+	border-bottom: 0px solid #fafafa;
+}
+
+</style>
+
+</head>
+
+<body>
+	<div id="login_form_white"></div>
+
+	<div id="login_form" class="login container">
+		<form class="form-horizontal" action="#">
+			<div class="login_title">
+				<h3 class="high_light">로그인</h3>
+			</div>
+			<hr>
+			<div class="form-group">
+				<label for="inputid3" class="col-sm-3 control-label">아이디</label>
+				<div class="col-sm-9">
+					<input type="text" class="form-control" id="inputid3"
+						placeholder="ID">
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputPassword3" class="col-sm-3 control-label">비밀번호</label>
+				<div class="col-sm-9">
+					<input type="password" class="form-control" id="inputPassword3"
+						placeholder="Password">
+				</div>
+			</div>
+
+			<div class="form-group" id="login_buttons">
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="submit" class="login_form_button">로그인</button>
+					</div>
+				</div>
+				<div style="height: 10px"></div>
+				<div class="row">
+					<div class="col-sm-12">
+						<button type="button" class="login_form_button"
+							onClick="location.href='./signup.html'">회원가입</button>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	</div>
+
+	<div>
+		<div id="back"></div>
+
+		<div id="main" class="container">
+			<div class="row">
+				<div id="status" class="col-md-12">
+					<div class="top_button">
+						<span class="glyphicon glyphicon-list"></span> <a
+							href="sitemap.html">사이트맵</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a
+							href="searchmember.html">회원검색</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a
+							href="modify.html">회원정보</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-ok"></span> <a id="login"
+							href="#">로그인</a>
+					</div>
+
+
+				</div>
+			</div>
+
+			<div class="row">
+				<div id="menu_nav" class="col-md-12">
+					<nav class="navbar navbar-default">
+						<div class="container-fluid">
+							<div class="navbar-header">
+								<a id="brand" class="navbar-brand" href="./index.html"> <b>SSAFY</b>
+								</a>
+							</div>
+
+							<div class="collapse navbar-collapse"
+								id="bs-example-navbar-collapse-1">
+								<ul class="nav navbar-nav">
+									<li><a href="./notify.html">공지사항</a></li>
+									<li><a href="./foodsearch.html">상품정보</a></li>
+									<li class="divider"></li>
+								</ul>
+								<form class="navbar-form navbar-right" role="search">
+									<div class="form-group">
+										<input id="word" type="text" class="form-control"
+											placeholder="검색 단어">
+									</div>
+									<button id="commit" type="button" class="btn btn-default">찾기</button>
+								</form>
+								<ul class="nav navbar-nav navbar-right">
+									<li class="dropdown"><a id="cat" href="#"
+										class="dropdown-toggle" data-toggle="dropdown" role="button"
+										aria-expanded="false">검색조건<span class="caret"></span></a>
+										<ul id="drops" class="dropdown-menu" role="menu"
+											aria-labelledby="dropdownMenu">
+											<li class="c1"><a href="#">전체</a></li>
+											<li class="divider"></li>
+											<li class="c2"><a href="#">상품명</a></li>
+											<li class="c4"><a href="#">원료</a></li>
+											<li class="divider"></li>
+											<li class="c5"><a href="#">영양성분</a></li>
+											
+										</ul>
+								</ul>
+
+							</div>
+						</div>
+					</nav>
+				</div>
+			</div>
+
+
+			<div id="title">
+				<div class="container">
+					<div id="big_title" class="">
+						<br>
+						<h1 class="sharp_font">
+							WHAT WE <b class="high_light">PROVIDE</b>
+						</h1>
+						<h2>건강한 삶을 위한 먹거리 프로젝트</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="detail">
+		<div class="container">
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-condensed" id="food_table">
+						<tbody id="food_tbody"></tbody>
+					</table>
+				</div>
+			</div>
+
+			<footer>
+				<H3>Find Us</H3>
+				<hr>
+				<span class="glyphicon glyphicon-road"></span> <span><b>위치</b>
+					서울시 강남구 테헤란로 멀티스퀘어</span> <br> <span
+					class="glyphicon glyphicon-phone"></span> <span><b>전화</b>
+					1544-2020</span> <br> <span class="glyphicon glyphicon-envelope"></span>
+				<span><b>메일</b> abc@ssafy.com</span>
+			</footer>
+		</div>
+		<div id="result"></div>
+	</div>
+
+</body>
+
+<script>
+	let search="전체";
+	
+	$("#login").on("click", ()=>{
+		$("#login_form").css("display", "block");						
+		$("#login_form_white").css("display", "block");						
+	})
+	
+	$("#login_form_white").on("click", ()=>{
+		$("#login_form").css("display", "none");			
+		$("#login_form_white").css("display", "none");						
+	})
+	
+	$(".c1").on("click", ()=>{
+		$("#cat").html('전체<span class="caret"></span>');
+		search = "전체";
+	});
+	$(".c2").on("click", ()=>{
+		$("#cat").html('상품명<span class="caret"></span>');
+		search = "상품명";
+	});
+	$(".c3").on("click", ()=>{
+		$("#cat").html('분류<span class="caret"></span>');
+		search = "분류";
+	});
+	$(".c4").on("click", ()=>{
+		$("#cat").html('원료<span class="caret"></span>');
+		search = "원료";
+	});
+
+	$("#commit").on("click", ()=>{
+		location.href='./foodsearch.html?cat='+search+'&word='+$("#word").val();
+	})
+	
+	$("#word").on("keydown", (key)=>{
+		if(key.keyCode == 13){
+			$("#commit").trigger("click");
+		}
+	})
+	
+	$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0;
+	    }
+	}	
+	
+	let viewinfo = (name) => {
+		location.href='./foodinfo.html?name='+name;		
+	};
+	
+</script>
+
+</html>

@@ -1,0 +1,206 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>안전 먹거리</title>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+<!-- 부가적인 테마 -->
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<script src="search.js"></script>
+
+<link rel="stylesheet" href="top.css">
+
+
+<script>
+function loadDoc() {
+    var req = new XMLHttpRequest();
+    req.open("GET", "foodInfo.xml", true);
+    req.send();
+    req.onreadystatechange = function() {
+        if (req.readyState == 4 && req.status == 200) {
+        	domTest(req);
+        }
+    };    
+}
+
+function domTest(xml) {
+    var xmlDoc = xml.responseXML;
+    console.log(xmlDoc);
+    let str="";
+    let foodNodes = xmlDoc.getElementsByTagName("food");
+	 // var bookNode = bookNodes[0]
+	 for(let i=0; i<foodNodes.length; i+=2) {
+		 let foodNode = foodNodes[i];
+	     let codeNode = foodNode.getElementsByTagName("code")[0].firstChild.data;
+	     let nameNode = foodNode.getElementsByTagName("name")[0].firstChild.data;
+	     let makerNode = foodNode.getElementsByTagName("maker")[0].firstChild.data;
+	     let materialNode = foodNode.getElementsByTagName("material")[0].firstChild.data;
+	     let imageNode = foodNode.getElementsByTagName("image")[0].firstChild.data;
+	     
+	     let table1 = document.getElementById("food_tbody");
+        // tr 개체를 얻어와 속성값을 조절한다.
+        let tr = document.createElement("tr");
+        tr.setAttribute("bgColor", "#FFFFFF"); // 배경색
+        tr.setAttribute("height", "30"); // 높이
+        
+        var td1 = document.createElement("td");
+        imageNode= "<img src=./"+imageNode+" width='200px' height='200px' />";
+        td1.innerHTML = imageNode;
+        var td2 = document.createElement("td");
+        td2.innerHTML = "<id='and'><b>"+nameNode+"</b><hr class='green'>"+makerNode;
+ 
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        // 입력된값을 넣은 tr 개체를 추가한다.
+        $('#food_tbody').append(tr);	
+	}
+	 for(let i=1; i<foodNodes.length; i+=2) {
+		 let foodNode = foodNodes[i];
+	     let codeNode = foodNode.getElementsByTagName("code")[0].firstChild.data;
+	     let nameNode = foodNode.getElementsByTagName("name")[0].firstChild.data;
+	     let makerNode = foodNode.getElementsByTagName("maker")[0].firstChild.data;
+	     let materialNode = foodNode.getElementsByTagName("material")[0].firstChild.data;
+	     let imageNode = foodNode.getElementsByTagName("image")[0].firstChild.data;
+	     
+	     let table1 = document.getElementById("food_tbody2");
+        // tr 개체를 얻어와 속성값을 조절한다.
+        let tr = document.createElement("tr");
+        tr.setAttribute("bgColor", "#FFFFFF"); // 배경색
+        tr.setAttribute("height", "30"); // 높이
+        
+        var td1 = document.createElement("td");
+        imageNode= "<img src=./"+imageNode+" width='200px' height='200px' />";
+        td1.innerHTML = imageNode;
+        var td2 = document.createElement("td");
+        td2.innerHTML = "<b>"+nameNode+"</b><hr class='green'>"+makerNode;
+         
+        tr.appendChild(td1);
+        tr.appendChild(td2);
+        $('#food_tbody2').append(tr);	
+	}
+}
+
+$(document).ready(function(){
+	loadDoc();
+});
+
+</script>
+
+<style>
+.table>tbody+tbody {
+	border-top: none;
+}
+
+.table>tbody>tr>td {
+	background: #ffffff;
+	vertical-align: middle;
+	padding: 0px;
+	border-top: none;
+	border-left: 0px solid #fafafa;
+	border-right: 0px solid #fafafa;
+	border-top: 0px solid #fafafa;
+	border-bottom: 0px solid #fafafa;
+}
+
+<!-- hr 녹색 컬러 -->
+hr.green{
+	width:10px;
+	border:1px solid green;
+}
+
+tr {
+	margin-bottom: "5px";
+}
+</style>
+
+</head>
+
+<body>
+
+
+	<div id="detail">
+		<div class="container">
+			<div class="panel-body">
+				<div class="table-responsive">
+					<table class="table table-condensed" id="food_table">
+						<tbody id="food_tbody" class="col-md-6"
+							style="padding-left: 5%; padding-right: 0px"></tbody>
+						<tbody id="food_tbody2" class="col-md-6" style="padding-left: 0px"></tbody>
+					</table>
+				</div>
+			</div>
+
+			<footer>
+				<H3>Find Us</H3>
+				<hr>
+				<span class="glyphicon glyphicon-road"></span> <span><b>위치</b>
+					서울시 강남구 테헤란로 멀티스퀘어</span> <br> <span
+					class="glyphicon glyphicon-phone"></span> <span><b>전화</b>
+					1544-2020</span> <br> <span class="glyphicon glyphicon-envelope"></span>
+				<span><b>메일</b> abc@ssafy.com</span>
+			</footer>
+		</div>
+		<div id="result"></div>
+	</div>
+
+</body>
+<script>
+let search="전체";
+
+$("#login").on("click", ()=>{
+	$("#login_form").css("display", "block");						
+	$("#login_form_white").css("display", "block");						
+})
+
+$("#login_form_white").on("click", ()=>{
+	$("#login_form").css("display", "none");			
+	$("#login_form_white").css("display", "none");						
+})
+
+$(".c1").on("click", ()=>{
+	$("#cat").html('전체<span class="caret"></span>');
+	search = "전체";
+});
+$(".c2").on("click", ()=>{
+	$("#cat").html('상품명<span class="caret"></span>');
+	search = "상품명";
+});
+$(".c3").on("click", ()=>{
+	$("#cat").html('분류<span class="caret"></span>');
+	search = "분류";
+});
+$(".c4").on("click", ()=>{
+	$("#cat").html('원료<span class="caret"></span>');
+	search = "원료";
+});
+$(".c5").on("click", ()=>{
+	$("#cat").html('영양성분<span class="caret"></span>');
+	search = "영양성분";
+});
+
+$("#commit").on("click", ()=>{
+	location.href='./foodsearch.html?cat='+search+'&word='+$("#word").val();
+})
+
+	
+$("#word").on("keydown", (key)=>{
+	if(key.keyCode == 13){
+		$("#commit").trigger("click");
+	}
+}) 
+</script>
+
+</html>

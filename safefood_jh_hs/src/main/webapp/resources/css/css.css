@@ -1,0 +1,100 @@
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+@import url('https://fonts.googleapis.com/css?family=Libre+Baskerville&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
+
+body {
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.sharp_font{
+	font-family: 'Libre Baskerville', serif;
+}
+
+/* 제일 껍데기 부분 */
+
+#back {
+	display:block;
+	position:absolute;
+	background-image: url("../img/back.jpg");
+    opacity:0.9;	
+    top:0;
+    left:0;
+    width: 100%;
+    height: 290px;
+    z-index:-1;
+}
+
+/* 로그인 메뉴 부분 */
+#status a, .white{
+	color:white;
+	text-decoration: blink;
+}
+#status a:hover, .white{
+	color:silver;
+	text-decoration: blink;
+}
+#status a:visited, .white{
+	color:white;
+}
+
+.none_deco{
+	color:black;
+	text-decoration: blink;
+}
+.none_deco:hover{
+	color:silver;
+	text-decoration: blink;
+}
+.none_deco:visited{
+	color:black;
+}
+
+.top_button {
+	float: right;
+	color:white;
+	height: 30px;
+	width: 80px;
+	padding-top:5px;
+}
+
+/* 메뉴 */
+#brand{
+	color:black;
+}
+
+/* 가운데 큰 타이틀, blue는 하이라이트 부분 */
+#big_title {
+	vertical-align: middle;
+	text-align: center;
+	height: 200px;
+	color:white;
+}
+
+.high_light{
+	color:#56b85a;
+}
+
+.blue {
+	color: #86db89;
+}
+/* 본문 */
+#detail{
+	padding-top:20px;
+}
+
+
+/* 바닥 */
+footer{
+	padding-top:30px;
+}
+
+.middle{
+	text-align: center;
+}
+
+.mybutton{
+	width:100%;
+	
+}
+
+
