@@ -52,7 +52,7 @@
 						<label class="control-label" for="inputSuccess2">ID</label><input type="text" class="form-control" id="inputSuccess2" aria-describedby="inputSuccess2Status" name="id"><span id="inputSuccess2Status" class="sr-only">(success)</span>
 					</div>
 					<div class="form-group has-feedback">
-						<label class="control-label" for="inputSuccess2">PW</label><input type="password" class="form-control" id="passSuccess2" aria-describedby="inputSuccess2Status" name="pw"><span id="inputSuccess2Status" class="sr-only">(success)</span>
+						<label class="control-label" for="inputSuccess2">PW</label><input type="password" class="form-control" id="passSuccess2" aria-describedby="inputSuccess2Status" name="password"><span id="inputSuccess2Status" class="sr-only">(success)</span>
 					</div>
 
 				<div class="form-group middle" id="login_buttons">

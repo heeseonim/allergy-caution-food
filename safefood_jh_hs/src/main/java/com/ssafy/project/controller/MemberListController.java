@@ -10,12 +10,12 @@ import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.ssafy.dao.MemberDaoDbImpl;
+import com.ssafy.dao.MemberDaoImpl;
 import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Member;
 
 public class MemberListController implements Controller {
-	private MemberDaoDbImpl impl = new MemberDaoDbImpl();
+	private MemberDaoImpl impl = new MemberDaoImpl();
 	private MyBatisUtil util = MyBatisUtil.getUtil();
 		
 	@Override

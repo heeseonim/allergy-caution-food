@@ -34,7 +34,7 @@
 						<c:otherwise>
 							<div class="top_button">
 							<span class="glyphicon glyphicon-ok"></span>
-							<a id="login" href="login.jsp">로그인</a>
+							<a id="login" href="/views/login.jsp">로그인</a>
 							</div>
 						</c:otherwise>
 					</c:choose>

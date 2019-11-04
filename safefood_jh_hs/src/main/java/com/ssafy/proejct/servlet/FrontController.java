@@ -28,7 +28,7 @@ import com.ssafy.project.controller.UpdateController;
 /**
  * Servlet implementation class ExtensionBaseServlet
  */
-@WebServlet("*.do")
+//@WebServlet("*.do")
 public class FrontController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
