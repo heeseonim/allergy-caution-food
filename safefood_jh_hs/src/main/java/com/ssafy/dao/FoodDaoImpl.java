@@ -1,4 +1,4 @@
-package com.ssafy.fms.dao;
+package com.ssafy.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

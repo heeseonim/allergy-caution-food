@@ -11,8 +11,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ssafy.fms.dao.FoodDao;
-import com.ssafy.fms.dao.FoodDaoImpl;
+import com.ssafy.dao.FoodDao;
+import com.ssafy.dao.FoodDaoImpl;
 import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;

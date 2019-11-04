@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.ssafy.fms.dao.MemberDaoDbImpl;
+import com.ssafy.dao.MemberDaoDbImpl;
 import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Member;
 

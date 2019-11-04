@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.ssafy.fms.dao.FoodDaoImpl;
+import com.ssafy.dao.FoodDaoImpl;
 import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Food;
 

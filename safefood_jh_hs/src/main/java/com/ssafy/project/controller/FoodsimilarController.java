@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.ssafy.fms.dao.FoodDao;
-import com.ssafy.fms.dao.FoodDaoImpl;
+import com.ssafy.dao.FoodDao;
+import com.ssafy.dao.FoodDaoImpl;
 import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Food;
 
