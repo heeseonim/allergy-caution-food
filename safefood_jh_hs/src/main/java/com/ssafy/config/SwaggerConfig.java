@@ -17,8 +17,8 @@ public class SwaggerConfig {
 	
 	private ApiInfo metadata() {
 		return new ApiInfoBuilder()
-				.title("Moon's Spring pms Swagger")
-				.description("pms by swagger")
+				.title("safefood jh hs Swagger")
+				.description("fms by swagger")
 				.version("1.0")
 				.build();
 	}

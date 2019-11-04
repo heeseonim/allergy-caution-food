@@ -1,9 +1,5 @@
 package com.ssafy.service;
 
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -17,7 +13,6 @@ import com.ssafy.util.MyBatisUtil;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
 import com.ssafy.vo.Nutrition;
-import com.ssafy.vo.SafeFoodException;
 
 public class FoodServiceImpl implements FoodService {
 	private MyBatisUtil util = MyBatisUtil.getUtil();

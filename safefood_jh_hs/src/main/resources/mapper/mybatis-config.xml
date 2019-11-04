@@ -3,12 +3,6 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-  <properties resource="mybatis/dbconfig.properties"></properties>
- 
-  <settings> <!-- 유용한 설정들 -->
-  	<setting name="mapUnderscoreToCamelCase" value="true"></setting> 
-  	<setting name="jdbcTypeForNull" value="NULL"></setting>
-  </settings>
  
   <typeAliases> <!-- mapper에서 참조할 bean의 예명 등록 -->
   	<typeAlias type="com.ssafy.vo.Food" alias="food"/>

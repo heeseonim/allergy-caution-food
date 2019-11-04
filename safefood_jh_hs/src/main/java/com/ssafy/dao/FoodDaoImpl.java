@@ -1,32 +1,16 @@
 package com.ssafy.dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
-
 import org.apache.ibatis.session.SqlSession;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.ssafy.service.FoodService;
-import com.ssafy.service.FoodServiceImpl;
-import com.ssafy.util.FoodNutritionSAXHandler;
-import com.ssafy.util.FoodSAXHandler;
-import com.ssafy.util.FoodSaxParser;
 import com.ssafy.vo.Food;
 import com.ssafy.vo.FoodPageBean;
-import com.ssafy.vo.Member;
-import com.ssafy.vo.SafeFoodException;
 
 public class FoodDaoImpl implements FoodDao {
 	
@@ -49,16 +33,16 @@ public class FoodDaoImpl implements FoodDao {
 	}
 	
 	@Override
-	public int insertFood(SqlSession session, Food food){
+	public int insertFood(Food food){
 		String stmt = namespace+"insertFood";
 		return session.insert(stmt, food);
 	}	
 	
-	public int addFood(SqlSession session, Food food) {
+	public int addFood(Food food) {
 		String stmt = namespace+"addFood";
 		return session.insert(stmt, food);
 	}
-	public int foodCount(SqlSession session, FoodPageBean bean) {
+	public int foodCount(FoodPageBean bean) {
 		// 구현하세요.
 		int result = -1;
 		String stmt = namespace+"foodCount";
@@ -80,7 +64,7 @@ public class FoodDaoImpl implements FoodDao {
 		return result;
 	}
 	
-	public List<Food> searchAll(SqlSession session, FoodPageBean bean) {
+	public List<Food> searchAll(FoodPageBean bean) {
 		List<Food> finds = new LinkedList<Food>();
 		String stmt = namespace+"searchAllBean";
 		
@@ -103,7 +87,7 @@ public class FoodDaoImpl implements FoodDao {
 		return finds;
 	}
 
-	public List<Food> searchAll(SqlSession session) {
+	public List<Food> searchAll() {
 		List<Food> finds = new LinkedList<>();
 		String stmt = namespace+"searchAll";		
 		
@@ -118,7 +102,7 @@ public class FoodDaoImpl implements FoodDao {
 	 * @param code 검색할 식품 코드
 	 * @return 식품 코드에 해당하는 식품 정보, 없으면 null이 리턴됨
 	 */
-	public Food search(SqlSession session, int code) {
+	public Food search(int code) {
 		// 코드에 맞는 식품 검색하여 리턴
 		//String sql = "select * from food where code = ?";
 		String stmt = namespace+"searchCode";
@@ -126,19 +110,19 @@ public class FoodDaoImpl implements FoodDao {
 		return session.selectOne(stmt, code);
 	}
 	
-	public Food searchName(SqlSession session, String name) {
+	public Food searchName(String name) {
 		String stmt = namespace+"searchName";
 		return session.selectOne(stmt, name);
 	}
 	@Override
-	public int updateClick(SqlSession session, Food food){
+	public int updateClick(Food food){
 //		String sql = "update food set frequency = ? where code = ?";
 //		String stmt = namespace+"updateClick";
 		return 1;
 	}	
 
 	
-	public void updateClick(SqlSession session, int code) {
+	public void updateClick(int code) {
 		// 클릭시마다 클릭 + 1
 		String stmt = namespace + "updateClick";
 		session.selectOne(stmt, code);
@@ -150,15 +134,15 @@ public class FoodDaoImpl implements FoodDao {
 	 * 
 	 * @return
 	 */
-	public List<Food> searchBest(SqlSession session) {
+	public List<Food> searchBest() {
 		return null;
 	}
 
-	public List<Food> searchBestIndex(SqlSession session) {
+	public List<Food> searchBestIndex() {
 		return null;
 	}
 
-	public List<Food> getAllList(SqlSession session) {
+	public List<Food> getAllList() {
 		return foods;
 	}
 	

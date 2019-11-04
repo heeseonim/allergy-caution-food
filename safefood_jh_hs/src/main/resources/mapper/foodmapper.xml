@@ -6,68 +6,63 @@
 
 	<select id="searchCode" parameterType="int" resultType="food">
 		select *
-		from food where code=#{no};
+		from foodinfo where code=#{no};
 	</select>
 	<select id="searchName" parameterType="string" resultType="food">
 		select name, supportpereat, calory,  carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat, maker, material, img, allergy, frequency
-		from food where name=#{name};
+		from foodinfo where name=#{name};
 	</select>
 	
 	<select id="searchAll" resultType="food">
 		select *
-		from food;
+		from foodinfo;
 	</select>
 	
 	<!-- searchAllBean -->
 	<!-- all -->
 	<select id="searchAllBean" parameterType="bean" resultType="food">
-		select * from food 
+		select * from foodinfo
 		where material like concat('%',#{word},'%') 
 		or maker like concat('%',#{word},'%') or name like concat('%',#{word},'%')
 	</select>
 	<!-- name -->
 	<select id="searchAllBeanName" parameterType="bean" resultType="food">
-		select * from food 
+		select * from foodinfo
 		where name like concat('%',#{word},'%')
 	</select>
 	<!-- maker -->
 	<select id="searchAllBeanMaker" parameterType="bean" resultType="food">
-		select * from food
+		select * from foodinfo
 		where maker like concat('%',#{word},'%')
 	</select>
 	<!-- material -->
 	<select id="searchAllBeanMaterial" parameterType="bean" resultType="food">
-		select * from food 
+		select * from foodinfo
 		where material like concat('%',#{word},'%') 
 	</select>
 	
 	<select id="updateClick" parameterType="int" resultType="food">
 		select *
-		from food where code=#{no};
+		from foodinfo where code=#{no};
 	</select>
 	
 	
 	<select id="foodCountAll" parameterType="string" resultType="int">
-		select count(*) from food where name like concat('%',#{word},'%') or maker like concat('%',#{word},'%') or material like concat('%',#{word},'%')	
+		select count(*) from foodinfo where name like concat('%',#{word},'%') or maker like concat('%',#{word},'%') or material like concat('%',#{word},'%')	
 	</select>
 	<select id="foodCountName" parameterType="string" resultType="int">
-		select count(*) from food where name like concat('%',#{word},'%')	
+		select count(*) from foodinfo where name like concat('%',#{word},'%')	
 	</select>
 	<select id="foodCountMaker" parameterType="string" resultType="int">
-		select count(*) from food where maker like concat('%',#{word},'%')	
+		select count(*) from foodinfo where maker like concat('%',#{word},'%')	
 	</select>
 	<select id="foodCountMaterial" parameterType="string" resultType="int">
-		select count(*) from food where material like concat('%',#{word},'%')	
+		select count(*) from foodinfo where material like concat('%',#{word},'%')	
 	</select>
 
 
 	<insert id="insertFood" parameterType="food">
-		insert INTO food VALUES(#{code}, #{name}, #{supportpereat}, #{calory},  #{carbo}, #{protein}, #{fat}, #{sugar},#{natrium},#{chole},#{fattyacid},#{transfat},#{maker},#{material},#{img},#{allergy}, #{frequency})
-	</insert>
-	<insert id="addFood" parameterType="food">
-		insert INTO food2(name, supportpereat, calory, carbo, protein, fat, sugar, natrium, chole, fattyacid, transfat, maker, material, img, allergy, frequency) 
-		VALUES(#{name}, #{supportpereat}, #{calory},  #{carbo}, #{protein}, #{fat}, #{sugar},#{natrium},#{chole},#{fattyacid},#{transfat},#{maker},#{material},#{img},#{allergy}, #{frequency})
-	</insert>
-	
+		insert INTO foodinfo VALUES(#{code}, #{name}, #{supportpereat}, #{calory},  #{carbo}, #{protein}, #{fat}, #{sugar},#{natrium},#{chole},#{fattyacid},#{transfat},#{maker},#{material},#{img},#{allergy}, #{frequency})
+	</insert>	
 	
 </mapper>
