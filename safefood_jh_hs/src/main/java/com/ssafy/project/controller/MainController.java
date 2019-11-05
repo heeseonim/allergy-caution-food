@@ -37,37 +37,96 @@ public class MainController {
 		return "/index";
 	}
 
-	@PostMapping("/signup.do")
-	public String MemberInsert(@RequestBody Member member) {
-		try {
-			int result = mservice.insertMember(member);
-			if (result > 0) {
-				return "redirect:index.jsp";
-			} else {
-				return "signup.jsp";
-			}
-		} catch (RuntimeException e) {
-			e.printStackTrace();
-			return "signup.jsp";
-		}
-	}
-
-	@RequestMapping("/views/login.do")
-	public String Login(@RequestParam String id, String password) {
-		System.out.println(id + "들어왓당");
+	@RequestMapping("/login.do")
+	public String Login(@RequestParam String id, String password, HttpSession session) {
+		System.out.println(id+" "+password+"들어왓당");
 		try {
 			boolean result = mservice.LoginMember(id, password);
-			if (result) {
-				return "index";
-			} else {
-				return "login";
+			System.out.println(result);
+			if(result) {
+				Member member = mservice.searchMember(id);
+				session.setAttribute("member", member);
+				return "redirect:index.jsp";
+			}else {
+				return "/login";
 			}
-		} catch (RuntimeException e) {
+		}catch(RuntimeException e) {
 			e.printStackTrace();
-			return "login";
+			return "/login";
 		}
 	}
-
+	
+	@RequestMapping("/signup.do")
+	public String Signup(String id,String pw,String name,String phone,String email, String[] allergy, HttpSession session) {
+		String al = Arrays.toString(allergy);
+		System.out.println(phone);
+		al = al.substring(1, al.length()-1).replaceAll(" ", "");
+		Member member = new Member(id,pw,name, phone,email,al);
+		System.out.println(member);
+		try {
+			int result = mservice.insertMember(member);	
+			if(result>0) {
+				session.setAttribute("member", member);
+				return "redirect:index.jsp";
+			}else {
+				return "/signup";
+			}
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			return "/signup";
+		}
+	}
+	
+	@RequestMapping("/logout.do")
+	public String Logout(HttpSession session) {
+		session.invalidate();
+		return "/index";
+	}
+	
+	@RequestMapping("/memberlist.do")
+	public String memberlist(HttpSession session) {
+		try{
+			List<Member> list = mservice.searchAll();
+			session.setAttribute("memberlist", list);
+			return "redirect:memberlist.jsp";
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			return "/index";
+		}
+	}
+	
+	@PostMapping("/update.do")
+	public String update(@RequestParam String id,String pw,String name,String phone,String email) {
+		Member member = new Member(id, pw, name, phone, email, null);
+		System.out.println(member+"업데이트");
+		try {
+			int result = mservice.updateMember(member);
+			if(result >0) {
+				return "redirect:index.jsp";
+			}else {
+				return "/memberinfo";
+			}
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			return "/memberinfo";
+		}
+	}
+	
+	@RequestMapping("/delete.do")
+	public String delete(@RequestParam String id) {
+		try {
+			int result = mservice.deleteMember(id);
+			if(result>0) {
+				return "redirect:index.jsp";
+			}else {
+				return "/memberinfo";
+			}
+		}catch(RuntimeException e) {
+			e.printStackTrace();
+			return "/memberinfo";
+		}
+	}
+	
 	@GetMapping("/foodlist.do")
 	public String doList(HttpSession session) {
 
