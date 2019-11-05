@@ -250,7 +250,7 @@ public class MainController {
 		}
 		
 		Gson gson = new Gson();
-		String jString = gson.toJson(f);		
+		String jString = gson.toJson(f);
 
 		hsr.setContentType("application/json;charset=utf-8");
 		try {

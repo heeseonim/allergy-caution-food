@@ -60,9 +60,10 @@ public class FoodDaoImpl implements FoodDao {
 		String stmt = namespace + "searchAllBean";
 
 		String word = "all";
-
+		
 		if (bean != null) {
 			String key = bean.getKey();
+			System.out.println(key);
 			word = (bean.getWord() != null && !bean.getWord().trim().equals("")) ? bean.getWord() : "";
 			if (key.equals("all")) {
 			} else if (key.equals("name")) {
