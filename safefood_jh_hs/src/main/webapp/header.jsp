@@ -106,3 +106,4 @@
 		</div>
 	</div>
 </div>
+<script src="search.js"></script>

@@ -51,7 +51,7 @@ public interface FoodDao {
 	public List<Food> getAllList();
 	
 	public int insertFood(Food food);
-//	public int addFood(SqlSession session, Food food);
+	public int addFood(Food food);
 	public int updateClick(Food food);
 	
 }

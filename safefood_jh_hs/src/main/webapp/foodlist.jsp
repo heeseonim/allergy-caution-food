@@ -85,7 +85,6 @@ let moveFoodInfo = (code) => {
 }
 
 $("#view").on("click", ()=>{
-//	location.href="./foodsortlist.do";
     $.ajax({
         url:"foodsortlist.do",
         type:"post",

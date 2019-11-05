@@ -88,11 +88,11 @@ productlist();
 </body>
 <script>
 let moveFoodInfo = (code) => {
-	location.href="./foodview.do?code="+code;
+	location.href="foodview.do?code="+code;
 }
 
 $("#commit").on("click", ()=>{
-	location.href='./foodsearch.html?cat='+search+'&word='+$("#word").val();
+	location.href='./resources/html/foodsearch.html?cat='+search+'&word='+$("#word").val();
 })
 
 </script>
