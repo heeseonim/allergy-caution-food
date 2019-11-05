@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
 import com.ssafy.service.FoodService;
@@ -219,6 +220,7 @@ public class MainController {
 	}
 	
 	@RequestMapping("/foodsimilar.do")
+	@ResponseBody
 	public String doSimilar(@RequestParam String fname, HttpServletResponse hsr) {
 		int code = Integer.parseInt(fname);
 		Food food = fservice.search(code);	//현재
@@ -253,13 +255,8 @@ public class MainController {
 		String jString = gson.toJson(f);
 
 		hsr.setContentType("application/json;charset=utf-8");
-		try {
-			hsr.getWriter().append(jString);
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
 		
-		return "none:sss.jsp";
+		return jString;
 	}
 
 }

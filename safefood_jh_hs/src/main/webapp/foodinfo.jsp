@@ -158,22 +158,8 @@ $("#add").on('click', () => {
 	});
 });
 
-$("#jjim").on('click', () => {
-	$.ajax({
-		url:"jjim.do",
-		method:"get",
-		data:"jjim="
-		success:function(res){
-			console.log("gb~");
-		},
-		error:function(){
-			alert("오류");
-		}
-	});
-});
 
 	function similar(){
-		console.log("클");
 		console.log($("#fname").val());
 		$.ajax({
 			url:"foodsimilar.do",
@@ -181,29 +167,29 @@ $("#jjim").on('click', () => {
 			data:"fname="+$("#fname").val(),
 			success:function(res){
 				$("#slist").empty();
+				let jsonData = JSON.parse(res);
 				
+				console.log(jsonData);
 				let tr1 = document.createElement("tr"); 
-				let tr2 = document.createElement("tr"); 
-	            for(key in res){
-	                let t = res[key];
-	                console.log(t);
+				let tr2 = document.createElement("tr");
+				
+				jsonData.forEach((food)=>{
 	                let td1 = document.createElement("td"); 
 	                
-	                td1.innerHTML = '<div><img class="moon" src="'+ t.img +'" height="100px" width="100px" /></div>';
+	                td1.innerHTML = '<div><img class="moon" src="'+ food.img +'" height="100px" width="100px" /></div>';
 	                td1.width="20%";
 	                tr1.appendChild(td1);
 	                
 	                let td2 = document.createElement("td"); 
-	                td2.innerHTML = t.name;
+	                td2.innerHTML = food.name;
 	                td2.style.textAlign="center";
 	                tr2.appendChild(td2);
-	                
-	            }
+				})
 	                $("#slist").append(tr1);
 	                $("#slist").append(tr2);
 			},
 			error:function(){
-				alert("오류");
+	
 			}
 		});
 	}
