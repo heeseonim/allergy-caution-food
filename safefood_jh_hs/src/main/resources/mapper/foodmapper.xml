@@ -41,10 +41,9 @@
 		where material like concat('%',#{word},'%') 
 	</select>
 	
-	<select id="updateClick" parameterType="int" resultType="food">
-		select *
-		from foodinfo where code=#{no};
-	</select>
+	<update id="updateClick" parameterType="food">
+		update foodinfo set frequency=#{frequency} where code = #{code}
+	</update>
 	
 	
 	<select id="foodCountAll" parameterType="string" resultType="int">

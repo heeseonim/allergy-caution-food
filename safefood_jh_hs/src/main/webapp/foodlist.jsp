@@ -58,8 +58,8 @@
 						<table id="" class="table" onclick="javascript:moveFoodInfo('${food.code}')">
 							<tr>
 								<td><h3 class="high_light">${food.name}</h3>
-									<span><b>${food.maker}</b></span><span class="fly">&nbsp;${food.frequency}</span><span class="
-glyphicon glyphicon-eye-open fly"></span></td>
+									<span><b>${food.maker}</b></span><span class="fly">&nbsp;${food.frequency}</span>
+									<span class="glyphicon glyphicon-eye-open fly"></span></td>
 							</tr>
 							<tr>
 								<td>${food.material}</td>

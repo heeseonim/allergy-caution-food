@@ -7,6 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.dao.FoodDao;
 import com.ssafy.vo.Food;
@@ -89,6 +90,7 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
+	@Transactional
 	public int updateClick(Food food) {
 		return dao.updateClick(food);
 	}

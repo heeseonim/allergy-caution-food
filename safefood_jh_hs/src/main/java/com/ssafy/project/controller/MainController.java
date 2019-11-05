@@ -153,6 +153,8 @@ public class MainController {
 	@RequestMapping("/foodview.do")
 	public String doView(@RequestParam String code, HttpSession session) {
 		Food f = fservice.search(Integer.parseInt(code));
+		f.setFrequency(f.getFrequency()+1);
+		System.out.println(f.getFrequency());
 		fservice.updateClick(f);
 		session.setAttribute("foodview", f);
 		return "redirect:foodinfo.jsp";
