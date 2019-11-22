@@ -129,5 +129,9 @@ public class FoodDaoImpl implements FoodDao {
 			System.out.println(food);
 		}
 	}
+	
+	public List<Food> searchByFrequency() {
+		return session.selectList(namespace + "searchByFrequency");
+	}
 
 }

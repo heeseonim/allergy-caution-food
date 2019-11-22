@@ -94,4 +94,10 @@ public class FoodServiceImpl implements FoodService {
 	public int updateClick(Food food) {
 		return dao.updateClick(food);
 	}
+
+	@Override
+	public List<Food> searchByFrequency() {
+		return dao.searchByFrequency();
+	}
+	
 }

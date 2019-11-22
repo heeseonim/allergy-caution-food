@@ -136,7 +136,9 @@ public class MainController {
 	public String doList(HttpSession session) {
 
 		List<Food> f = fservice.searchAll();
+		List<Food> foodByF = fservice.searchByFrequency();
 		session.setAttribute("foods", f);
+		session.setAttribute("foodByF", foodByF);
 		session.setAttribute("data", "true");
 
 		return "foodlist";

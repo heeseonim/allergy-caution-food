@@ -54,4 +54,6 @@ public interface FoodDao {
 	public int addFood(Food food);
 	public int updateClick(Food food);
 	
+	public List<Food> searchByFrequency();
+	
 }

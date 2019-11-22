@@ -19,4 +19,5 @@ public interface FoodService {
 	public void addeat(int code, int amount);
 	public int insertFood(Food food);
 	public int updateClick(Food food);
+	public List<Food> searchByFrequency();
 }

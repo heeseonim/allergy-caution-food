@@ -62,6 +62,10 @@
 
 	<insert id="insertFood" parameterType="food">
 		insert INTO foodinfo VALUES(#{code}, #{name}, #{supportpereat}, #{calory},  #{carbo}, #{protein}, #{fat}, #{sugar},#{natrium},#{chole},#{fattyacid},#{transfat},#{maker},#{material},#{img},#{allergy}, #{frequency})
-	</insert>	
+	</insert>
+	
+	<select id="searchByFrequency" resultType="food">
+		select * from foodinfo order by frequency desc limit 5
+	</select>
 	
 </mapper>

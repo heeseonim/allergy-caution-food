@@ -31,6 +31,7 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
+	<jsp:include page="foodByF.jsp"></jsp:include>
 
 	<div id="detail">
 		<div id="result" class="container">
@@ -77,6 +78,7 @@
 </body>
 
 <script>
+
 /* jshint esversion: 6 */
 // name, maker, material
 
