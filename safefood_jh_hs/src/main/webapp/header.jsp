@@ -58,6 +58,7 @@
 							<ul class="nav navbar-nav">
 								<li><a href="./notify.jsp">공지사항</a></li>
 								<li><a href="foodlist.do">상품정보</a></li>
+								<li><a href="./qna.jsp">Q&A</a></li>
 								<li class="divider"></li>
 							</ul>
 							

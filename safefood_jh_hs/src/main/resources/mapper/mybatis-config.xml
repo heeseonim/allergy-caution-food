@@ -9,10 +9,15 @@
   	<typeAlias type="com.ssafy.vo.Member" alias="member"/>
   	<typeAlias type="com.ssafy.vo.Nutrition" alias="nutrition"/>
   	<typeAlias type="com.ssafy.vo.FoodPageBean" alias="bean"/>
+  	<typeAlias type="com.ssafy.vo.Board" alias="board"/>
+  	<typeAlias type="com.ssafy.vo.JJim" alias="jjim"/>
+	<typeAlias type="com.ssafy.vo.PageBean" alias="pagebean"/>
   </typeAliases>
-
+  
   <mappers>
     <mapper resource="mapper/foodmapper.xml"/>
     <mapper resource="mapper/membermapper.xml"/>
+    <mapper resource="mapper/qnamapper.xml"/>
+    <mapper resource="mapper/jjimmapper.xml"/>
   </mappers>
 </configuration>

@@ -33,6 +33,10 @@ public class MainController {
 	@Autowired
 	FoodService fservice;
 
+	@GetMapping("/")
+	public String main() {
+		return "/index";
+	}
 	@GetMapping("/main.do")
 	public String gomain() {
 		return "/index";
