@@ -62,12 +62,7 @@
 						</div>
 					</div>
 					<div class="sp">
-					</div>
-					<div class="row">
-						<div class="col-sm-12">
-							<button type="button" class="btn btn-default btn-max" onClick="location.href='./signup.jsp'">회원가입</button>
-						</div>
-					</div>					
+					</div>				
 				</div>
 				</div>
 			</div>

@@ -12,10 +12,10 @@ body {
 
 /* 제일 껍데기 부분 */
 
-#back {
+.slider {
 	display:block;
 	position:absolute;
-	background-image: url("../img/back.jpg");
+	/*background-image: url("../img/back.jpg");*/
     opacity:0.9;	
     top:0;
     left:0;
