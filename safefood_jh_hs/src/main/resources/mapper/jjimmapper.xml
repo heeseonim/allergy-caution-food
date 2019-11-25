@@ -9,7 +9,7 @@
 		code) values(#{id},#{code})
 	</insert>
 
-	<delete id="deleteQnABoard" parameterType="jjim">
+	<delete id="deleteJJim" parameterType="jjim">
 		delete from jjim where id=#{id} and code=#{code}
 	</delete>
 	
@@ -20,4 +20,5 @@
 	<select id="searchJJimById" parameterType="string" resultType="food">
 		select * from foodinfo join jjim using (code) where id = #{id};
 	</select>
+
 </mapper>

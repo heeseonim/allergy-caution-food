@@ -64,7 +64,7 @@ public class JJimRestController {
 
 	// 글 삭제 동작
 	@DeleteMapping("/JJim/{id}/{code}")
-	public ResponseEntity<Map<String, Object>> DeleteBoard(@PathVariable String id, String code) {
+	public ResponseEntity<Map<String, Object>> DeleteBoard(@PathVariable String id, @PathVariable String code) {
 		JJim jjim = new JJim(id, Integer.parseInt(code));
 		System.out.println(jjim);
 		try {
