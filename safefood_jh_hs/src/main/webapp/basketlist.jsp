@@ -12,10 +12,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
-
-
-
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
 
@@ -64,7 +60,7 @@
 					</tbody>
 
 				</table>
-				<button type="button" id="addjjim" class="btn btn-default">구매</button>
+				<button type="button" id="add" class="btn btn-default">구매</button>
 				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
 			</form>
 		</div>
@@ -86,7 +82,7 @@
 					$(data).each(function(idx, item){
 						$("#basketlist").append("<tr><td><img src=/"+item.img
 								+" height='100px' width='100px'></td><td>"+item.name
-								+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code
+								+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name
 								+" ></td></tr>");
 					});
 				}else{
@@ -106,7 +102,9 @@
 		console.log($("input:checkbox[name=jjimcheck]:checked"));
 		$('input:checkbox[name=jjimcheck]:checked').each(function() {
 	         console.log($(this).val());
-	         let jcode = $(this).val();
+	         let p = [];
+			 p = $(this).val().split(",");
+			 let jcode = p[0];
 	         $.ajax({
 	 			url:"/JJim/"+jid+"/"+jcode,
 	 			type:"delete",
@@ -121,6 +119,38 @@
 	 		    }
 	 		});
 	     });
+	});
+	
+	$("#add").click(function() {
+		let product="";
+		$('input[name=jjimcheck]:checked').each(function(i) {
+			let p = [];
+			p = $(this).val().split(",");
+			product += p[1] + ", ";
+		})
+		
+		let result = product.substring(0, product.length-2);
+		
+		
+		let hid = '${member.id}';
+		let date = '2000-01-01';
+		let history = {id : hid, regdate : date, s_name : result};
+		$.ajax({
+			url	: "/insertHistory",
+			type : "post",
+			data:JSON.stringify(history),
+			contentType:"application/json",
+			success:function(res) {
+				if(res.status) {
+					alert("추가완료");
+				} else {
+					alert("오류");
+				}
+			},
+			error:function(xhr) {
+				alert("실패");
+			}
+		})	
 	});
 </script>
 <!-- 합쳐지고 최소화된 최신 CSS -->

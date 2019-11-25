@@ -86,6 +86,28 @@
 
 		</form>
 	</div>
+	
+	<div id="detail">
+		<div class="container" style="width:800px">
+			<h1 class="text-center">
+				<span class="high_light">구매내역</span>
+			</h1>
+			<br>
+			<form id="jjimform" class="form-horizontal">
+				<table class="table table-hover">
+					<tr>
+						<th>구입날짜</th>
+						<th>구입상품</th>
+						<th></th>
+						<th></th>
+					</tr>
+					<tbody id="historyList">
+					
+					</tbody>
+				</table>
+			</form>
+		</div>
+	</div>
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script>
@@ -101,6 +123,31 @@
 		$form.attr("action","delete.do");
 		$form.submit();
 	}
+	
+	let hid = '${member.id}';
+	function showHistory(){
+		$.ajax({
+			url:"/selectHistory/"+hid,
+			type:"get",
+			success:function(res){
+				if(res.status){
+					$("#historyList").empty();
+					let data = res.data;
+					$(data).each(function(idx, item){
+						$("#historyList").append("<tr><td>"+item.regdate+"</td><td>"+item.s_name
+								+"</td><td></td><td></td></tr>");
+					});
+				}else{
+					alert("비어있습니다.");
+				}
+			},
+			error:function(e){
+				alert("목록 조회 실패");
+				console.log(e);
+			}
+		});
+	};
+	showHistory();
 	
 </script>
 </html>

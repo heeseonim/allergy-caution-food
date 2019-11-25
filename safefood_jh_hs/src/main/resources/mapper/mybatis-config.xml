@@ -12,6 +12,7 @@
   	<typeAlias type="com.ssafy.vo.Board" alias="board"/>
   	<typeAlias type="com.ssafy.vo.JJim" alias="jjim"/>
 	<typeAlias type="com.ssafy.vo.PageBean" alias="pagebean"/>
+	<typeAlias type="com.ssafy.vo.History" alias="history"/>
   </typeAliases>
   
   <mappers>
@@ -19,5 +20,6 @@
     <mapper resource="mapper/membermapper.xml"/>
     <mapper resource="mapper/qnamapper.xml"/>
     <mapper resource="mapper/jjimmapper.xml"/>
+    <mapper resource="mapper/historymapper.xml"/>
   </mappers>
 </configuration>
