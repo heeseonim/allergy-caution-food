@@ -21,6 +21,9 @@
 					<div class="top_button">
 						<span class="glyphicon glyphicon-user"></span><a href="memberlist.do">회원목록</a>
 					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a href="./jjim.jsp">내 찜상품 보기</a>
+					</div>
 				</c:if>
 				<!-- Member [id=ssafy, pw=1111, name=홍길동, phone=123, email=123] -->
 				<div>
