@@ -33,9 +33,6 @@
 					<div class="top_button">
 						<span class="glyphicon glyphicon-user"></span><a href="memberlist.do">장바구니</a>
 					</div>
-					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a href="./jjim.jsp">찜한상품</a>
-					</div>
 				</c:if>
 			</div>
 		</div>
