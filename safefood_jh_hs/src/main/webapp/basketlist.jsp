@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -9,8 +8,7 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
@@ -53,13 +51,16 @@
 						<tr>
 							<td><img src="./img/비비빅.jpg" height="100px" width="100px"></td>
 							<td>비비빅</td>
-							<td><input type="number" name="jjimcheck" id="jjimcheck"
-								class="form-control" style="width: 15%" placeholder="0"></td>
+							<td><input type="number" name="jjimcheck" id="jjimcheck" class="form-control" style="width: 15%" placeholder="0"></td>
 							<td><input type="checkbox"></td>
 						</tr>
 					</tbody>
 
 				</table>
+				<span>선택한 상품의 총 칼로리는 ?</span>
+				<span id="bar">0</span>
+				<span>Kcal</span>
+				<hr>
 				<button type="button" id="add" class="btn btn-default">구매</button>
 				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
 			</form>
@@ -70,6 +71,8 @@
 </body>
 
 <script>
+	let array = [];
+
 	let jid = '${member.id}';
 	function showbasket(){
 		$.ajax({
@@ -80,12 +83,10 @@
 					$("#basketlist").empty();
 					let data = res.data;
 					$(data).each(function(idx, item){
-						$("#basketlist").append("<tr><td><img src=/"+item.img
-								+" height='100px' width='100px'></td><td>"+item.name
-								+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name
-								+" ></td></tr>");
+						$("#basketlist").append("<tr><td><img src=/"+item.img+" height='100px' width='100px'></td><td>"+item.name+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name+","+item.calory+"></td></tr>");
+						array.push(item);
 					});
-				}else{
+				}else {
 					alert("비어있습니다.");
 				}
 			},
@@ -150,19 +151,34 @@
 			error:function(xhr) {
 				alert("실패");
 			}
-		})	
+		})
 	});
+	
+	let sum = 0;	
+	$("#basketlist").on("click", 'input:checkbox', function() {
+		let p = [];
+		p = $(this).val().split(",");
+		
+		if ($(this).is(":checked")) {
+			sum += Math.floor(Number(p[2]));
+			$("#bar").empty();
+			$("#bar").append(sum);
+		} else {
+			sum -= Math.floor(Number(p[2]));
+			$("#bar").empty();
+			$("#bar").append(sum);
+		}	
+	});
+	
+	
 </script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <!-- 부가적인 테마 -->
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="search.js"></script>
 </html>
