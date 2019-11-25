@@ -5,8 +5,7 @@
 <mapper namespace="com.ssafy.mapper.JJimMapper">
 
 	<insert id="insertJJim" parameterType="jjim">
-		insert into jjim(id,
-		code) values(#{id},#{code})
+		insert into jjim(id, code) values(#{id},#{code})
 	</insert>
 
 	<delete id="deleteJJim" parameterType="jjim">

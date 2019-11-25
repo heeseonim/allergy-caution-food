@@ -40,7 +40,7 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div id="detail">
-		<div class="container" style="width:800px">
+		<div class="container" style="width: 800px">
 			<h1 class="text-center">
 				<span class="high_light">장바구니</span>
 			</h1>
@@ -53,15 +53,19 @@
 						<th></th>
 						<th></th>
 					</tr>
-					<tr>
-						<td><img src="./img/비비빅.jpg" height="100px" width="100px"></td>
-						<td>비비빅</td>
-						<td><input type="number" name="jjimcheck" id="jjimcheck" class="form-control" style="width:15%" placeholder="0"></td>
-						<td><input type="checkbox"></td>
-					</tr>
+					<tbody id="basketlist">
+						<tr>
+							<td><img src="./img/비비빅.jpg" height="100px" width="100px"></td>
+							<td>비비빅</td>
+							<td><input type="number" name="jjimcheck" id="jjimcheck"
+								class="form-control" style="width: 15%" placeholder="0"></td>
+							<td><input type="checkbox"></td>
+						</tr>
+					</tbody>
+
 				</table>
 				<button type="button" id="addjjim" class="btn btn-default">구매</button>
-				<button type="button" id="addjjim" class="btn btn-default">삭제</button>
+				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
 			</form>
 		</div>
 	</div>
@@ -70,38 +74,54 @@
 </body>
 
 <script>
-	function showjjim(){
-		console.log("jjimlist 로딩중");
+	let jid = '${member.id}';
+	function showbasket(){
 		$.ajax({
-			url:"",
-			type:"",
-			success:function(){},
-			error:function(){},
-		})
+			url:"/JJim/"+jid,
+			type:"get",
+			success:function(res){
+				if(res.status){
+					$("#basketlist").empty();
+					let data = res.data;
+					$(data).each(function(idx, item){
+						$("#basketlist").append("<tr><td><img src=/"+item.img
+								+" height='100px' width='100px'></td><td>"+item.name
+								+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code
+								+" ></td></tr>");
+					});
+				}else{
+					alert("비어있습니다.");
+				}
+			},
+			error:function(e){
+				alert("목록 조회 실패");
+				console.log(e);
+			}
+		});
 	};
-	showjjim();
-	$("#addjjim").on("click", (e)=>{
+	showbasket();
+	
+	
+	$("#deletebasket").on("click", ()=>{
+		console.log($("input:checkbox[name=jjimcheck]:checked"));
 		$('input:checkbox[name=jjimcheck]:checked').each(function() {
 	         console.log($(this).val());
+	         let jcode = $(this).val();
+	         $.ajax({
+	 			url:"/JJim/"+jid+"/"+jcode,
+	 			type:"delete",
+	 			success:function(res){
+	 				console.log(res);
+	 			},
+	 			error:function(e){
+	 				console.log(e);
+	 			},
+	 			complete : function() {
+	 		       showbasket();    
+	 		    }
+	 		});
 	     });
-		$.ajax({
-			url:"",
-			type:"",
-			success:function(){},
-			error:function(){},
-		})
 	});
-	function deletejjim(id){
-		console.log(id);
-		console.log("in");
-		$.ajax({
-			url:"",
-			type:"",
-			success:function(){},
-			error:function(){},
-		})
-		
-	}
 </script>
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet"

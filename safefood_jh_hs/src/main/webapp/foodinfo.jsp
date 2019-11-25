@@ -12,10 +12,6 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
-
-
-
-
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
 
@@ -93,7 +89,7 @@
 						<tbody>
 							<tr>
 								<td><span class="high_light" ><b>제품명</b></span></td>
-								<td id="iddd">${foodview.name}</td>
+								<td>${foodview.name}</td>
 							</tr>
 							<tr>
 								<td><span class="high_light"><b>칼로리</b></span></td>
@@ -144,19 +140,31 @@
 </body>
 
 <script>	
-$("#add").on('click', () => {
-	console.log($("#iddd").text());
-	$.ajax({
-		url:"foodadd.do",
-		method:"post",
-		success:function(res){
-			appen
-		},
-		error:function(){
-			alert("오류");
-		}
+	$("#add").on('click', () => {
+		let jcode = ${foodview.code};
+		let jid = '${member.id}';
+		let jjim = {id:jid, code:jcode};
+		console.log("애드",jjim);
+		$.ajax({
+			url:"/JJim",
+			type:"post",
+			data:JSON.stringify(jjim),		// 객체 ==> 문자열
+			contentType:"application/json",	// 이제 json 형태로 보낼거다.
+			success:function(res){
+				console.log(res);
+				if(res.status){
+					alert("추가완료");
+				}else{
+					alert(res.data);
+				}
+			},
+			error:function(xhr){
+				alert("정보 저장 실패");
+				//$("#result").text("정보 저장 실패"+ xhr.responseJSON.data);
+				console.log(xhr);
+			}
+		})
 	});
-});
 
 
 	function similar(){

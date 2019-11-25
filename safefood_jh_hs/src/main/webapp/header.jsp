@@ -31,7 +31,7 @@
 						<span class="glyphicon glyphicon-user"></span><a href="memberinfo.jsp">회원정보</a>
 					</div>
 					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a href="memberlist.do">장바구니</a>
+						<span class="glyphicon glyphicon-user"></span><a href="basketlist.jsp">장바구니</a>
 					</div>
 				</c:if>
 			</div>
