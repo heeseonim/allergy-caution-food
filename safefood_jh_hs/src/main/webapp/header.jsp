@@ -10,23 +10,7 @@
 	<div id="main" class="container">
 		<div class="row">
 			<div id="status" class="col-md-12">
-				<div class="top_button">
-					<span class="glyphicon glyphicon-list"></span> <a
-						href="sitemap.jsp">사이트맵</a>
-				</div>
-				<c:if test="${not empty member}">
-					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a href="memberinfo.jsp">회원정보</a>
-					</div>
-					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a href="memberlist.do">회원목록</a>
-					</div>
-					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a href="./jjim.jsp">내 찜상품 보기</a>
-					</div>
-				</c:if>
-				<!-- Member [id=ssafy, pw=1111, name=홍길동, phone=123, email=123] -->
-				<div>
+			<div>
 					<c:choose>
 						<c:when test="${not empty member}">
 							<div class="top_button">
@@ -42,8 +26,17 @@
 						</c:otherwise>
 					</c:choose>
 				</div>
-
-
+				<c:if test="${not empty member}">
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a href="memberinfo.jsp">회원정보</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a href="memberlist.do">장바구니</a>
+					</div>
+					<div class="top_button">
+						<span class="glyphicon glyphicon-user"></span><a href="./jjim.jsp">찜한상품</a>
+					</div>
+				</c:if>
 			</div>
 		</div>
 
