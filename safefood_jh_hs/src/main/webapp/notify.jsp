@@ -25,25 +25,6 @@
 
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
-<style>
-</style>
-<script>
-let productlist = () => {
-        $.ajax({
-            url:"foodlist.do",
-            type:"post",
-            data:$("#my_form").serialize(),
-            success:()=>{
-//            	("성공");
-            },
-            error:()=>{
-                alert("아이쿠");
-            }
-        })
-}
-
-</script>
-
 </head>
 
 <body>
@@ -93,5 +74,4 @@ $("#word").on("keydown", (key)=>{
 	}
 }) 
 </script>
-<script src="search.js"></script>
 </html>

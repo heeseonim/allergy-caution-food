@@ -139,23 +139,22 @@
 
 <script>	
 function showal() {
-	console.log("${foodview.allergy}");
 	if("${foodview.allergy}"){
 		let f1 = "${foodview.allergy}";
 		let m1 = "${member.al}";
 		let f = f1.split(" ");
 		let m = m1.split(",");
-		console.log(f);
-		console.log(m);
 		for(let i=0; i<f.length; i++) {
+			var flag = true;
 			for(let j=0; j<m.length; j++) {
 				if (f[i] == m[j]) {
-					console.log(f[i]);
-					$("#al").append("<span style='color:red'>"+f[i]+"</span>");
+					$("#al").append("<span style='color:red'>"+f[i]+" </span>");
+					flag = false;
 				}
 			}
+			if(flag)
+				$("#al").append("<span>"+f[i]+" </span>");
 		}
-		console.log(temp);
 	}
 }
 showal();
@@ -381,6 +380,4 @@ showal();
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<script src="search.js"></script>
-
 </html>

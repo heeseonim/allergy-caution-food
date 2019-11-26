@@ -83,5 +83,4 @@ productlist();
 	<jsp:include page="footer.jsp"></jsp:include>
 
 </body>
-<script src="search.js"></script>
 </html>

@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>안전 먹거리</title>
+<title>Q&A</title>
 
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -27,31 +27,6 @@
 
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
-<style>
-</style>
-<script>
-let productlist = () => {
-        $.ajax({
-            url:"foodlist.do",
-            type:"post",
-            data:$("#my_form").serialize(),
-            success:()=>{
-    			if(!<%=session.getAttribute("data")%>){
-    				location.href="index.jsp";
-    			}else{
-    				console.log("완료");
-    			}
-            },
-            error:()=>{
-            	console.log("실패");
-            }
-        })
-}
-
-productlist();
-
-</script>
-
 </head>
 
 <body>
@@ -61,9 +36,7 @@ productlist();
 	
 		<div id="result" class="container">
 
-			<h2 class="high_light middle">
-				<b>질의응답</b>
-			</h2>
+			<h2 class="high_light middle"><b>질의응답</b></h2>
 			<hr>
 			<c:import url="./static/qna.html"></c:import>
 			<hr>
@@ -84,6 +57,5 @@ $("#commit").on("click", ()=>{
 
 </script>
 
-<script src="search.js"></script>
 
 </html>

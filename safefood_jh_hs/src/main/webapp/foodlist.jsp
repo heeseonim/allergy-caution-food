@@ -146,6 +146,4 @@ $("#view").on("click", ()=>{
 
 </script>
 
-<script src="search.js"></script>
-
 </html>

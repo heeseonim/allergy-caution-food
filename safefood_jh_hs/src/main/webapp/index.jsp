@@ -77,6 +77,5 @@ $("#commit").on("click", ()=>{
 	location.href='./resources/html/foodsearch.html?cat='+search+'&word='+$("#word").val();
 })
 </script>
-<script src="./js/search.js"></script>
 
 </html>
