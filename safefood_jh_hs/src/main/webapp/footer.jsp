@@ -10,6 +10,7 @@
 					class="glyphicon glyphicon-phone"></span> <span><b>전화</b>
 					1544-2020</span> <br> <span class="glyphicon glyphicon-envelope"></span>
 				<span><b>메일</b> abc@ssafy.com</span>
+				<p class="pull-right"><a href="#">Back to top</a></p>
 			</footer>
 		</div>
 	</div>

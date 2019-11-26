@@ -33,7 +33,6 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 	
-	<jsp:include page="foodByF.jsp"></jsp:include>
 
 	<div id="detail">
 		<div class="container">
@@ -44,6 +43,7 @@
 					<img src="${foodview.img}" height="250px" width="250px">
 				</div>
 				<div class="col-md-9">
+					<jsp:include page="foodByF.jsp"></jsp:include>
 					<table id="food_desc" class="table">
 						<tbody>
 							<tr>
@@ -158,7 +158,6 @@
 			},
 			error:function(xhr){
 				alert("정보 저장 실패");
-				//$("#result").text("정보 저장 실패"+ xhr.responseJSON.data);
 				console.log(xhr);
 			}
 		})

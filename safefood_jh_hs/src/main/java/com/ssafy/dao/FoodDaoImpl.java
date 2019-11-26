@@ -92,13 +92,6 @@ public class FoodDaoImpl implements FoodDao {
 		return session.selectOne(namespace + "searchName", name);
 	}
 
-//	@Override
-//	public int updateClick(Food food) {
-////		String sql = "update food set frequency = ? where code = ?";
-////		String stmt = namespace+"updateClick";
-//		return 1;
-//	}
-
 	public int updateClick(Food food) {
 		// 클릭시마다 클릭 + 1
 		return session.update(namespace + "updateClick", food);

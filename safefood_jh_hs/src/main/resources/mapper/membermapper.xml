@@ -17,7 +17,7 @@
 	</select>
 
 	<update id="updateMember" parameterType="member">
-		update mem set pw = #{pw}, name = #{name}, phone = #{phone}, email = #{email} where id = #{id}
+		update mem set pw = #{pw}, name = #{name}, phone = #{phone}, email = #{email}, allergy = #{al} where id = #{id}
 	</update>
 
 	<delete id="deleteMember" parameterType="string">

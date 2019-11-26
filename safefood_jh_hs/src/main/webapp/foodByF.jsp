@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -11,19 +10,19 @@
 #floatMenu {
 	position: absolute;
 	width: 200px;
-	height: 200px;
-	right: 50px;
-	top: 300px;
+	height: 500px;
+	right: -370px;
+	top: 0px;
 	color: #fff;
 }
 </style>
 </head>
 <body>
-<div id="floatMenu">
-	<img src="./img/베스트상품.png" width="140"/>
-	<c:forEach items="${foodByF }" var="f">
-		<img src="${f.img }" height="130px" width="130px" onclick="javascript:moveFoodInfo('${f.code}')"/>
-	</c:forEach>
+	<div id="floatMenu">
+		<img src="https://cdn.crowdpic.net/list-thumb/thumb_l_38FEC4287A2668C26F537AD7A4A4BFD3.png" width="130" /> <br>
+		<c:forEach items="${foodByF }" var="f">
+			<img src="${f.img }" height="130px" width="130px" onclick="javascript:moveFoodInfo('${f.code}')" />
+		</c:forEach>
 	</div>
 </body>
 <script>
@@ -32,11 +31,18 @@ $(document).ready(function() {
 	
 	$(window).scroll(function() {
 		var scrollTop = $(window).scrollTop();
-		var newPosition = scrollTop + floatPosition + "px";
-		
-		$("#floatMenu").stop().animate({
-			"top" : newPosition
-		}, 500);
+		if(scrollTop < 500) {
+			var newPosition = scrollTop + floatPosition + "px";
+
+			$("#floatMenu").stop().animate({
+				"top" : newPosition
+			}, 500);
+		} else {
+			newPosition = (scrollTop-500) + floatPosition + "px";
+			$("#floatMenu").stop().animate({
+				"top" : newPosition
+			}, 500);
+		}
 	}).scroll();
 });
 

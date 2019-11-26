@@ -1,8 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="./js/ie-emulation-modes-warning.js"></script>
+
+    <link href="./css/carousel.css" rel="stylesheet">
 <div id="login_form_white"></div>
-<div id="back"></div>
+<div id="back">
+	<div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+      </ol>
+      <div class="carousel-inner" role="listbox">
+        <div class="item active">
+          <img class="first-slide" src="./img/food1.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>We Bring Delicious Indulgences to the Table</h1>
+              <p>We contribute to a tastier and healthier world with K-Food,
+a cuisine that satisfies local tastes with a touch of Korean flavor</p>
+             </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="second-slide" src="./img/food3.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>We lead the future of eco-friendly green biotechnology</h1>
+              <p>We lead the future of GREEN BIO by possessing
+the world’s very best technology and competitiveness</p>
+            </div>
+          </div>
+        </div>
+        <div class="item">
+          <img class="third-slide" src="./img/food5.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <div class="container">
+            <div class="carousel-caption">
+              <h1>We help the world grow together with local communities</h1>
+              <p>We now find ourselves on the doorstep of a global age of mutual prosperity
+through sustainable management</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+</div>
 <div>  
 	<div id="main" class="container" style="position:relative">
 		<div class="row">
@@ -93,12 +147,16 @@
 				<div id="big_title" class="">
 					<br>
 					<h1 class="sharp_font">
-						WHAT WE <b class="high_light">PROVIDE</b>
+						 <b class="high_light"> </b>
 					</h1>
-					<h2>건강한 삶을 위한 먹거리 프로젝트</h2>
+					<h2> </h2>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
 <script src="search.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/holder.js"></script>
+    <script src="./js/ie10-viewport-bug-workaround.js"></script>

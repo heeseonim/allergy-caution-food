@@ -9,8 +9,6 @@
 
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
@@ -31,15 +29,16 @@
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
 
-	<jsp:include page="foodByF.jsp"></jsp:include>
 
 	<div id="detail">
 		<div id="result" class="container">
 			<h2 class="high_light middle">
 				<b>상품 정보</b>
+				
 			</h2>
 
 			<div class="dropdown fly">
+				<jsp:include page="foodByF.jsp"></jsp:include>
 				<button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">
 					정렬 <span class="caret"></span>
 				</button>

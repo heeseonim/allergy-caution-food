@@ -64,10 +64,8 @@ public class MainController {
 	@RequestMapping("/signup.do")
 	public String Signup(String id,String pw,String name,String phone,String email, String[] allergy, HttpSession session) {
 		String al = Arrays.toString(allergy);
-		System.out.println(phone);
 		al = al.substring(1, al.length()-1).replaceAll(" ", "");
 		Member member = new Member(id,pw,name, phone,email,al);
-		System.out.println(member);
 		try {
 			int result = mservice.insertMember(member);	
 			if(result>0) {
@@ -101,8 +99,10 @@ public class MainController {
 	}
 	
 	@PostMapping("/update.do")
-	public String update(@RequestParam String id,String pw,String name,String phone,String email) {
-		Member member = new Member(id, pw, name, phone, email, null);
+	public String update(@RequestParam String id,String pw,String name,String phone,String email, String[] allergy) {
+		String al = Arrays.toString(allergy);
+		al = al.substring(1, al.length()-1).replaceAll(" ", "");
+		Member member = new Member(id, pw, name, phone, email, al);
 		System.out.println(member+"업데이트");
 		try {
 			int result = mservice.updateMember(member);
@@ -160,9 +160,9 @@ public class MainController {
 	public String doView(@RequestParam String code, HttpSession session) {
 		Food f = fservice.search(Integer.parseInt(code));
 		f.setFrequency(f.getFrequency()+1);
-		System.out.println(f.getFrequency());
 		fservice.updateClick(f);
 		session.setAttribute("foodview", f);
+		System.out.println(f);
 		return "redirect:foodinfo.jsp";
 	}
 
@@ -239,8 +239,8 @@ public class MainController {
 			e.printStackTrace();
 		}
 		//유클리디언 거리
-		double[] u = new double[20];
-		double[] idx = new double[20];
+		double[] u = new double[22];
+		double[] idx = new double[22];
 		int cnt =0;
 		for (Food f : list) {
 			double dis = Math.floor(Math.pow(food.getCalory()-f.getCalory(), 2)+Math.pow(food.getCarbo()-f.getCarbo(), 2)+

@@ -33,7 +33,7 @@ public class FoodServiceImpl implements FoodService {
 		Food food = dao.search(code);
 		StringBuilder sb = new StringBuilder("");
 		for (String allergy : allergys) {
-			if (allergy != null && food.getMaterial().contains(allergy)) {
+			if (food.getAllergy() != null && food.getAllergy().contains(allergy)) {
 				sb.append(allergy + " ");
 			}
 		}

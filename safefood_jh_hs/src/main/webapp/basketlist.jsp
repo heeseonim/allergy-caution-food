@@ -44,8 +44,8 @@
 					<tr>
 						<th>이미지</th>
 						<th>상품명</th>
-						<th></th>
-						<th></th>
+						<th>수량</th>
+						<th>선택</th>
 					</tr>
 					<tbody id="basketlist">
 						<tr>
@@ -83,7 +83,7 @@
 					$("#basketlist").empty();
 					let data = res.data;
 					$(data).each(function(idx, item){
-						$("#basketlist").append("<tr><td><img src=/"+item.img+" height='100px' width='100px'></td><td>"+item.name+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='0'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name+","+item.calory+"></td></tr>");
+						$("#basketlist").append("<tr><td><img src=/"+item.img+" height='100px' width='100px'></td><td>"+item.name+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='1'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name+","+item.calory+"></td></tr>");
 						array.push(item);
 					});
 				}else {
