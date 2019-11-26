@@ -56,7 +56,7 @@
 							</tr>
 							<tr>
 								<td><b>알레르기 성분</b></td>
-								<td>${foodview.allergy}</td>
+								<td id="al"></td>
 							</tr>
 						</tbody>
 					</table>
@@ -138,6 +138,27 @@
 </body>
 
 <script>	
+function showal() {
+	console.log("${foodview.allergy}");
+	if("${foodview.allergy}"){
+		let f1 = "${foodview.allergy}";
+		let m1 = "${member.al}";
+		let f = f1.split(" ");
+		let m = m1.split(",");
+		console.log(f);
+		console.log(m);
+		for(let i=0; i<f.length; i++) {
+			for(let j=0; j<m.length; j++) {
+				if (f[i] == m[j]) {
+					console.log(f[i]);
+					$("#al").append("<span style='color:red'>"+f[i]+"</span>");
+				}
+			}
+		}
+		console.log(temp);
+	}
+}
+showal();
 	$("#add").on('click', () => {
 		let jcode = ${foodview.code};
 		let jid = '${member.id}';
@@ -165,7 +186,6 @@
 
 
 	function similar(){
-		console.log($("#fname").val());
 		$.ajax({
 			url:"foodsimilar.do",
 			method:"post",
