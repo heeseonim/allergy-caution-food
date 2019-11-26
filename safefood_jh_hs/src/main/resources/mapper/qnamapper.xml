@@ -37,4 +37,20 @@
 	<select id="count" resultType="int">
 		select count(*) from qna;
 	</select>
+	
+	<!-- 댓글창 -->
+	<select id="commentlistByno" parameterType="int" resultType="comment">
+		select * from comment where no = #{no}
+	</select>
+	
+	<insert id="commentinsert" parameterType="comment">
+		insert into comment (no, id, contents) values(#{no},#{id},#{contents})
+	</insert>
+	
+	<delete id="commentdelete" parameterType="int">
+		delete from comment where commentno = #{commentno}
+	</delete>
+	
+	
+	
 </mapper>

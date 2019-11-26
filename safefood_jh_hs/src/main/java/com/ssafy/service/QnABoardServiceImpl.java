@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.ssafy.dao.QnABoardDao;
 import com.ssafy.vo.Board;
+import com.ssafy.vo.Comment;
 import com.ssafy.vo.PageBean;
 
 
@@ -45,6 +46,20 @@ public class QnABoardServiceImpl implements QnABoardService{
 	public int count() {
 		return dao.count();
 	}
-	
+
+	@Override
+	public List<Comment> commentlistByno(int no) {
+		return dao.commentlistByno(no);
+	}
+
+	@Override
+	public int commentinsert(Comment comment) {
+		return dao.commentinsert(comment);
+	}
+
+	@Override
+	public int commentdelete(int commentno) {
+		return dao.commentdelete(commentno);
+	}
 	
 }

@@ -13,6 +13,7 @@
   	<typeAlias type="com.ssafy.vo.JJim" alias="jjim"/>
 	<typeAlias type="com.ssafy.vo.PageBean" alias="pagebean"/>
 	<typeAlias type="com.ssafy.vo.History" alias="history"/>
+	<typeAlias type="com.ssafy.vo.Comment" alias="comment"/>
   </typeAliases>
   
   <mappers>

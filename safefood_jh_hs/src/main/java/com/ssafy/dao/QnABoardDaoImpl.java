@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.ssafy.vo.Board;
+import com.ssafy.vo.Comment;
 import com.ssafy.vo.PageBean;
 
 
@@ -54,5 +55,22 @@ public class QnABoardDaoImpl implements QnABoardDao{
 	public int deleteQnABoard(String no) {
 		return session.delete(namespace + "deleteQnABoard", no);
 	}
+
+	@Override
+	public List<Comment> commentlistByno(int no) {
+		return session.selectList(namespace+"commentlistByno", no);
+	}
+
+	@Override
+	public int commentinsert(Comment comment) {
+		return session.insert(namespace+"commentinsert", comment);
+	}
+
+	@Override
+	public int commentdelete(int commentno) {
+		return session.delete(namespace+"commentdelete", commentno);
+	}
+
+
 
 }
