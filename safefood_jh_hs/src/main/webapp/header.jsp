@@ -17,7 +17,7 @@
       </ol>
       <div class="carousel-inner" role="listbox">
         <div class="item active">
-          <img class="first-slide" src="./img/food1.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="First slide">
+          <img class="first-slide" src="./img/food1.jpg;" alt="First slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>We Bring Delicious Indulgences to the Table</h1>
@@ -27,7 +27,7 @@ a cuisine that satisfies local tastes with a touch of Korean flavor</p>
           </div>
         </div>
         <div class="item">
-          <img class="second-slide" src="./img/food3.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Second slide">
+          <img class="second-slide" src="./img/food3.jpg;" alt="Second slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>We lead the future of eco-friendly green biotechnology</h1>
@@ -37,7 +37,7 @@ the world’s very best technology and competitiveness</p>
           </div>
         </div>
         <div class="item">
-          <img class="third-slide" src="./img/food5.jpg;base64,R0lGODlhAQABAIAAAHd3dwAAACH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==" alt="Third slide">
+          <img class="third-slide" src="./img/food5.jpg;" alt="Third slide">
           <div class="container">
             <div class="carousel-caption">
               <h1>We help the world grow together with local communities</h1>
@@ -156,7 +156,7 @@ through sustainable management</p>
 	</div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="./js/holder.js"></script>
     <script src="./js/ie10-viewport-bug-workaround.js"></script>
     <script src="./js/search.js"></script>

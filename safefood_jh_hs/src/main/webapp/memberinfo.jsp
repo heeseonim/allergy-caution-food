@@ -72,6 +72,12 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="inputid3" class="col-sm-4 control-label">현재 알러지</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" value="${member.al }" readonly="readonly">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="inputid3" class="col-sm-4 control-label">알러지</label>
 				<div class="col-sm-5">
 					<div class="checkbox">

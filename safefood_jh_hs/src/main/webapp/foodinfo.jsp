@@ -193,7 +193,6 @@ showal();
 				$("#slist").empty();
 				let jsonData = JSON.parse(res);
 				
-				console.log(jsonData);
 				let tr1 = document.createElement("tr"); 
 				let tr2 = document.createElement("tr");
 				
