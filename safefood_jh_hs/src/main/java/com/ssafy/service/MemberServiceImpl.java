@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.ssafy.dao.MemberDao;
 import com.ssafy.vo.Member;
+
 @Service
 public class MemberServiceImpl implements MemberService {
 	@Autowired

@@ -22,5 +22,6 @@
     <mapper resource="mapper/qnamapper.xml"/>
     <mapper resource="mapper/jjimmapper.xml"/>
     <mapper resource="mapper/historymapper.xml"/>
+    <mapper resource="mapper/notifymapper.xml"/>
   </mappers>
 </configuration>
