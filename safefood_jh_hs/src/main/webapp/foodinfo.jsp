@@ -61,7 +61,7 @@
 						</tbody>
 					</table>
 					<input type="hidden" name="fname" id="fname" value="${foodview.code}"/>
-					<input type="button" id="add" class="btn btn-default" value="장바구니에 추가" />
+					<input type="button" id="add" class="btn btn-default" value="찜 목록에 추가" />
 				</div>
 			</div>
 			<div class="container">

@@ -88,8 +88,8 @@
 							href="memberinfo.jsp">회원정보</a>
 					</div>
 					<div class="top_button">
-						<span class="glyphicon glyphicon-user"></span><a
-							href="basketlist.jsp">장바구니</a>
+						<span class="glyphicon glyphicon-heart"></span><a
+							href="basketlist.jsp">찜 목록</a>
 					</div>
 				</c:if>
 			</div>
