@@ -56,9 +56,10 @@
 			<div class="row featurette">
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
-						And lastly, this one. <span class="text-muted">Checkmate.</span>
+						
+Korean spicy taste,<br> ramen representing Korea<br><span class="text-muted">Ramen</span>
 					</h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+					<p class="lead">국내에서의 인기 못지 않게 일본,미국, 홍콩, 대만, 중국 등 해외 100여개국에서도 그 독특한, 매콤한 맛으로 사랑 받고 있으며, 국내에서 보다 훨씬 비싼 가격에(2∼4배) 팔리고 있어, 더더욱 화제를 모으고 있는 제품입니다.</p>
 				</div>
 				<div class="col-md-5">
 					<img class="featurette-image img-responsive center-block" alt="500x500" src="./img/food4.jpg" data-holder-rendered="true">
