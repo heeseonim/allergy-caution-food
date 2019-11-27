@@ -11,7 +11,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
 <link type="text/css" href="css/css.css" rel="stylesheet" />
+<!-- 합쳐지고 최소화된 최신 CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style>
 <!--
@@ -48,12 +55,7 @@
 						<th>선택</th>
 					</tr>
 					<tbody id="basketlist">
-						<tr>
-							<td><img src="./img/비비빅.jpg" height="100px" width="100px"></td>
-							<td>비비빅</td>
-							<td><input type="number" name="jjimcheck" id="jjimcheck" class="form-control" style="width: 15%" placeholder="0"></td>
-							<td><input type="checkbox"></td>
-						</tr>
+						
 					</tbody>
 
 				</table>
@@ -83,7 +85,7 @@
 					$("#basketlist").empty();
 					let data = res.data;
 					$(data).each(function(idx, item){
-						$("#basketlist").append("<tr><td><img src=/"+item.img+" height='100px' width='100px'></td><td>"+item.name+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='1'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name+","+item.calory+"></td></tr>");
+						$("#basketlist").append("<tr><td><img src=/"+item.img+" height='100px' width='100px'></td><td>"+item.name+"</td><td><input type='number' class='form-control' style='width:15%' placeholder='1' value='1' id='num"+item.code+"'></td><td><input type='checkbox' name='jjimcheck' id='jjimcheck' value="+item.code+","+item.name+","+item.calory+"></td></tr>");
 						array.push(item);
 					});
 				}else {
@@ -154,17 +156,20 @@
 		})
 	});
 	
+	// 칼로리 계산 함수
 	let sum = 0;	
 	$("#basketlist").on("click", 'input:checkbox', function() {
 		let p = [];
 		p = $(this).val().split(",");
 		
 		if ($(this).is(":checked")) {
-			sum += Math.floor(Number(p[2]));
+			var n = document.getElementById("num"+p[0]).value;
+			sum += Math.floor(Number(p[2])) * n;
 			$("#bar").empty();
 			$("#bar").append(sum);
 		} else {
-			sum -= Math.floor(Number(p[2]));
+			var n = document.getElementById("num"+p[0]).value;
+			sum -= Math.floor(Number(p[2])) * n;
 			$("#bar").empty();
 			$("#bar").append(sum);
 		}	
@@ -172,12 +177,4 @@
 	
 	
 </script>
-<!-- 합쳐지고 최소화된 최신 CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
-
-<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </html>
