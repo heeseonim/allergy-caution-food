@@ -31,30 +31,12 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div id="detail">
+	
 		<div id="result" class="container">
-			<h2 class="high_light middle"><b>공지사항</b></h2>
-			<hr>
-			<form id="my_form" action="#">
-				<table class="table">
-					<tr>
-						<td><span class="high_light">번호</span></td>
-						<td><span class="high_light">제목</span></td>
-						<td><span class="high_light">작성일자</span></td>
-					</tr>
-					<tr>
-						<td><a class="none_deco" href="#">2</a></td>
-						<td><a class="none_deco" href="#">테스트</a></td>
-						<td><a class="none_deco" href="#">2019-09-10</a></td>
-					</tr>
-					<tr>
-						<td><a class="none_deco" href="#">1</a></td>
-						<td><a class="none_deco" href="#">제목</a></td>
-						<td><a class="none_deco" href="#">2019-09-09</a></td>
-					</tr>
-				</table>
 
-				<input type="button" class="btn btn-default" value="글쓰기" />
-			</form>
+			<h2 class="high_light middle"><b>게시판</b></h2>
+			<hr>
+			<c:import url="./static/notify.html"></c:import>
 			<hr>
 		</div>
 	</div>
