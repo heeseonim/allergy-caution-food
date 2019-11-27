@@ -117,14 +117,14 @@
 	<div id="detail">
 		<div class="container" style="width:800px">
 			<h1 class="text-center">
-				<span class="high_light">구매내역</span>
+				<span class="high_light">섭취내역</span>
 			</h1>
 			<br>
 			<form id="jjimform" class="form-horizontal">
 				<table class="table table-hover">
 					<tr>
-						<th>구입날짜</th>
-						<th>구입상품</th>
+						<th>섭취날짜</th>
+						<th>섭취상품</th>
 						<th></th>
 						<th></th>
 					</tr>

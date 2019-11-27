@@ -43,7 +43,7 @@
 	<div id="detail">
 		<div class="container" style="width: 800px">
 			<h1 class="text-center">
-				<span class="high_light">장바구니</span>
+				<span class="high_light">찜 목록</span>
 			</h1>
 			<br>
 			<form id="jjimform" class="form-horizontal">
@@ -63,7 +63,7 @@
 				<span id="bar">0</span>
 				<span>Kcal</span>
 				<hr>
-				<button type="button" id="add" class="btn btn-default">구매</button>
+				<button type="button" id="add" class="btn btn-default">섭취</button>
 				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
 			</form>
 		</div>
