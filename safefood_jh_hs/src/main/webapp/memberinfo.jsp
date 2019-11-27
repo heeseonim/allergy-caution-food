@@ -103,10 +103,10 @@
 				<div class="row">
 					<div class="col-sm-4"></div>
 					<div class="col-sm-1">
-						<button type="button" onclick="updatemember()"  class="btn btn-default mybutton" id="update">정보수정</button>
+						<button type="button" onclick="updatemember()"  class="btn btn-default" id="update">정보수정</button>
 					</div>
 					<div class="col-sm-1">
-						<button type="button" onclick="deletemember()" class="btn btn-default mybutton" id="delete">회원탈퇴</button>
+						<button type="button" onclick="deletemember()" class="btn btn-default" id="delete">회원탈퇴</button>
 					</div>
 				</div>
 			</div>
