@@ -239,8 +239,8 @@ public class MainController {
 			e.printStackTrace();
 		}
 		//유클리디언 거리
-		double[] u = new double[22];
-		double[] idx = new double[22];
+		double[] u = new double[23];
+		double[] idx = new double[23];
 		int cnt =0;
 		for (Food f : list) {
 			double dis = Math.floor(Math.pow(food.getCalory()-f.getCalory(), 2)+Math.pow(food.getCarbo()-f.getCarbo(), 2)+
