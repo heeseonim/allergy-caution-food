@@ -32,9 +32,9 @@
 			<div class="row">
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
-						First featurette heading. <span class="text-muted">It'll blow your mind.</span>
+						Natural Product <span class="text-muted">Milk</span>
 					</h2>
-					<p class="lead">Donec ullamcorper nulla non metus auctor fringilla. Vestibulum id ligula porta felis euismod semper. Praesent commodo cursus magna, vel scelerisque nisl consectetur. Fusce dapibus, tellus ac cursus commodo.</p>
+					<p class="lead">From the very moment you drink Milk, to not only make you full physically but also make you feel warm and happy, Milk creates a new lifestyle.</p>
 				</div>
 				<div class="col-md-5">
 					<img class="featurette-image img-responsive center-block" alt="500x500" src="./img/우유.jpg" data-holder-rendered="true">
@@ -44,9 +44,9 @@
 			<div class="row featurette">
 				<div class="col-md-7 col-md-push-5">
 					<h2 class="featurette-heading">
-						Daily Refreshing <span class="text-muted">Dessert</span>
+						Daily Refreshing <span class="text-muted">Ice Cream</span>
 					</h2>
-					<p class="lead">작은 디저트를 통해 누구나 일상에서 행복을 느낄 수 있도록, 우리들의 하루가 더 달콤해지는 디저트 입니다.</p>
+					<p class="lead">To make people happy in their daily lives through small desserts, and to make our lives sweeter, Ice Cream is a dessert brand that offers refreshment for our daily lives.</p>
 				</div>
 				<div class="col-md-5 col-md-pull-7">
 					<img class="featurette-image img-responsive center-block" alt="500x500" src="./img/아이스크림.jpg" data-holder-rendered="true">
@@ -56,10 +56,10 @@
 			<div class="row featurette">
 				<div class="col-md-7">
 					<h2 class="featurette-heading">
-						
-Korean spicy taste,<br> ramen representing Korea<br><span class="text-muted">Ramen</span>
+						Korean spicy taste <span class="text-muted">Ramen</span>
 					</h2>
-					<p class="lead">국내에서의 인기 못지 않게 일본,미국, 홍콩, 대만, 중국 등 해외 100여개국에서도 그 독특한, 매콤한 맛으로 사랑 받고 있으며, 국내에서 보다 훨씬 비싼 가격에(2∼4배) 팔리고 있어, 더더욱 화제를 모으고 있는 제품입니다.</p>
+					<p class="lead">An increasing number of people feel the happiness from serving well-prepared, delicious meal even if it’s just a quick meal.
+					Ramen was born for these people.</p>
 				</div>
 				<div class="col-md-5">
 					<img class="featurette-image img-responsive center-block" alt="500x500" src="./img/food4.jpg" data-holder-rendered="true">
