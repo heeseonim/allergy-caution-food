@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ssafy.service.MemberService;
 import com.ssafy.service.QnABoardService;
 import com.ssafy.vo.Board;
 import com.ssafy.vo.Comment;
@@ -35,6 +36,9 @@ import lombok.extern.slf4j.Slf4j;
 public class QnARestController {
 	@Autowired
 	QnABoardService bs;
+	
+	@Autowired
+	MemberService service;
 
 	@GetMapping("/QnABoard")
 	@ApiOperation("전체 QnABoard리스트")
@@ -97,7 +101,7 @@ public class QnARestController {
 	public ResponseEntity<Map<String, Object>> commentlistByno(@PathVariable int no) {
 		return response(bs.commentlistByno(no), HttpStatus.OK, true);
 	}
-	
+
 	@PostMapping("/Comment")
 	@ApiOperation("Q&A에 해당하는 댓글 추가")
 	public ResponseEntity<Map<String, Object>> commentinsert(@RequestBody Comment comment) {
@@ -108,7 +112,7 @@ public class QnARestController {
 			throw e;
 		}
 	}
-	
+
 	@DeleteMapping("/Comment/{commentno}")
 	@ApiOperation("Q&A에 해당하는 댓글 지우기")
 	public ResponseEntity<Map<String, Object>> commentdelete(@PathVariable int commentno) {
@@ -119,7 +123,6 @@ public class QnARestController {
 			throw e;
 		}
 	}
-	
 
 	// 글 수정 동작
 	@PutMapping("/QnABoard")
@@ -152,6 +155,17 @@ public class QnARestController {
 		PageBean bean = new PageBean(key, word, pageNumber);
 		List<Board> result = bs.searchQnAall(bean);
 		return result;
+	}
+
+	// QnA해당 게시글 상세정보
+	@GetMapping("/Findpass/{id}")
+	public ResponseEntity<Map<String, Object>> findpass(@PathVariable String id) {
+		try {
+			String rightans = service.searchPass(id);
+			return response(rightans, HttpStatus.OK, true);
+		} catch (RuntimeException e) {
+			return response("Get BoardDetail Error", HttpStatus.CONFLICT, true);
+		}
 	}
 
 	private ResponseEntity<Map<String, Object>> response(Object data, HttpStatus httpStatus, boolean status) {

@@ -11,6 +11,11 @@
 		select id, pw ,name, phone, email, allergy al from mem where id = #{id};
 	</select>
 	
+	
+	<select id="searchPass" parameterType="string" resultType="string">
+		select ans from mem where id = #{id};
+	</select>
+	
 	<!-- 나중에 -->
 	<select id="LoginMember" parameterType="string" resultType="member">
 		select * from mem where id = #{id}

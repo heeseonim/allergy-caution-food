@@ -53,4 +53,9 @@ public class MemberServiceImpl implements MemberService {
 		return dao.searchAll();
 	}
 
+	@Override
+	public String searchPass(String id) {
+		return dao.searchPass(id);
+	}
+
 }

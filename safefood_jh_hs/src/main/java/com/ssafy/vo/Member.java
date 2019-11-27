@@ -15,6 +15,7 @@ public class Member {
 	private String email;
 	private String[] allergy;
 	private String al;
+	private String ans;
 	public Member(String id, String pw, String name, String phone, String email, String al) {
 		super();
 		this.id = id;

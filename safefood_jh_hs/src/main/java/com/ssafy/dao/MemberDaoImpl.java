@@ -44,5 +44,10 @@ public class MemberDaoImpl implements MemberDao {
 	public int deleteMember(String id) {
 		return session.delete(ns+"deleteMember", id);
 	}
+
+	@Override
+	public String searchPass(String id) {
+		return session.selectOne(ns+"searchPass", id);
+	}
 	
 }

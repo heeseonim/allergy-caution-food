@@ -46,12 +46,12 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div id="login_form" class="login container">
-		<form class="form-horizontal" action="login.do" method="post">
+		<form class="form-horizontal">
 
 			<div class="row bo">
 
 				<div class="col-sm-4 col-sm-offset-4">
-					<h3 class="middle">로그인</h3>
+					<h3 class="middle">비밀번호 찾기</h3>
 					<div class="form-group has-feedback">
 						<label class="control-label" for="inputSuccess2">ID</label><input
 							type="text" class="form-control" id="inputSuccess2"
@@ -59,19 +59,23 @@
 							id="inputSuccess2Status" class="sr-only">(success)</span>
 					</div>
 					<div class="form-group has-feedback">
-						<label class="control-label" for="inputSuccess2">PW</label><input
-							type="password" class="form-control" id="passSuccess2"
-							aria-describedby="inputSuccess2Status" name="password"><span
+						<label class="control-label" for="passSuccess2">답변리스트</label> 
+						<br>
+						<select class="form-control">
+							<option>고르세요</option>
+							<option>부모님성함</option>
+							<option>초등학교 이름</option>
+							<option>좌우명</option>
+							<option>ㅁㄴㅇㄹ</option>
+						</select> <span id="inputSuccess2Status" class="sr-only">(success)</span>
+					</div>
+					<div class="form-group has-feedback">
+						<label class="control-label" for="passfind">답변</label><input
+							type="text" class="form-control" id="passfind"
+							aria-describedby="passfindStatus" name="ans"><span
 							id="inputSuccess2Status" class="sr-only">(success)</span>
 					</div>
-
 					<div class="form-group middle" id="login_buttons">
-						<div class="row">
-							<div class="col-sm-12">
-								<button type="submit" class="btn btn-default btn-max">로그인</button>
-							</div>
-						</div>
-						<div class="sp"></div>
 						<div class="row">
 							<div class="col-sm-12">
 								<button type="button" id="findpass"
@@ -89,7 +93,23 @@
 <script>
 	$("#findpass").on("click", (e)=>{
 		e.preventDefault();
-		location.href="./findpass.jsp";
+		let id = $("#inputSuccess2").val();
+		console.log(id);
+		$.ajax({
+			url:"/Findpass/"+id,
+			type:"get",
+			success:function(res){
+				if(res.data==$("#passfind").val()){
+					alert(res.data);
+				}else{
+					alert("답변이 틀렸습니다");
+				}
+			},
+			error:function(xhr){
+				alert("정보 저장 실패");
+				console.log(xhr);
+			}
+		})
 	})
 	
 </script>

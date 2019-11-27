@@ -11,4 +11,5 @@ public interface MemberService {
 	int updateMember(Member member);
 	int deleteMember(String id);
 	List<Member> searchAll();
+	String searchPass(String id);
 }
