@@ -24,7 +24,6 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
-
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
 </head>
@@ -47,10 +46,6 @@
 
 </body>
 <script>
-let moveFoodInfo = (code) => {
-	location.href="foodview.do?code="+code;
-}
-
 $("#commit").on("click", ()=>{
 	location.href='./resources/html/foodsearch.html?cat='+search+'&word='+$("#word").val();
 })

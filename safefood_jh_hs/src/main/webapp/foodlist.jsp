@@ -6,18 +6,18 @@
 <head>
 <meta charset="UTF-8">
 <title>안전 먹거리</title>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <link type="text/css" href="css/css.css" rel="stylesheet" />
 
 <!-- 합쳐지고 최소화된 최신 CSS -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
-<!-- 부가적인 테마 -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 
 <!-- 합쳐지고 최소화된 최신 자바스크립트 -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 <style>
 .fly {
 	float: right;
@@ -81,7 +81,7 @@
 /* jshint esversion: 6 */
 // name, maker, material
 
-let moveFoodInfo = (code) => {
+moveFoodInfo = (code) => {
 	location.href="./foodview.do?code="+code;
 }
 
