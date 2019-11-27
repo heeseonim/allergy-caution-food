@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ssafy.mapper.MemberMapper">
 	<insert id="insertMember" parameterType="member">
-		insert into mem (id,pw,name,phone,email,allergy) values (#{id},#{pw},#{name},#{phone},#{email},#{al})
+		insert into mem (id,pw,name,phone,email,allergy, ans) values (#{id},#{pw},#{name},#{phone},#{email},#{al},#{ans})
 	</insert>
 	
 	<select id="searchMember" parameterType="string" resultType="member">

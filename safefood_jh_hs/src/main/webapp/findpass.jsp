@@ -61,12 +61,12 @@
 					<div class="form-group has-feedback">
 						<label class="control-label" for="passSuccess2">답변리스트</label> 
 						<br>
-						<select class="form-control">
+						<select class="form-control" >
 							<option>고르세요</option>
 							<option>부모님성함</option>
 							<option>초등학교 이름</option>
 							<option>좌우명</option>
-							<option>ㅁㄴㅇㄹ</option>
+							<option>기타</option>
 						</select> <span id="inputSuccess2Status" class="sr-only">(success)</span>
 					</div>
 					<div class="form-group has-feedback">
@@ -94,19 +94,19 @@
 	$("#findpass").on("click", (e)=>{
 		e.preventDefault();
 		let id = $("#inputSuccess2").val();
+		let ans = $("#passfind").val();
 		console.log(id);
 		$.ajax({
-			url:"/Findpass/"+id,
+			url:"/Findpass/"+id+"/"+ans,
 			type:"get",
 			success:function(res){
-				if(res.data==$("#passfind").val()){
-					alert(res.data);
+				if(res.status){
+					alert("비밀번호는 : "+res.data+" 입니다");
 				}else{
-					alert("답변이 틀렸습니다");
+					alert("답변이 틀렸습니다 확인해보세요");
 				}
 			},
 			error:function(xhr){
-				alert("정보 저장 실패");
 				console.log(xhr);
 			}
 		})

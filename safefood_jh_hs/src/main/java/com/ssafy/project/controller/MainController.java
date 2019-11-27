@@ -62,10 +62,10 @@ public class MainController {
 	}
 	
 	@RequestMapping("/signup.do")
-	public String Signup(String id,String pw,String name,String phone,String email, String[] allergy, HttpSession session) {
+	public String Signup(String id,String pw,String name,String phone,String email, String[] allergy, String ans, HttpSession session) {
 		String al = Arrays.toString(allergy);
 		al = al.substring(1, al.length()-1).replaceAll(" ", "");
-		Member member = new Member(id,pw,name, phone,email,al);
+		Member member = new Member(id,pw,name, phone,email,al, ans);
 		try {
 			int result = mservice.insertMember(member);	
 			if(result>0) {

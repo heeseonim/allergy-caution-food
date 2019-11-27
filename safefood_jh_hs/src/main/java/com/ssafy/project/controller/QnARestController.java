@@ -158,11 +158,15 @@ public class QnARestController {
 	}
 
 	// QnA해당 게시글 상세정보
-	@GetMapping("/Findpass/{id}")
-	public ResponseEntity<Map<String, Object>> findpass(@PathVariable String id) {
+	@GetMapping("/Findpass/{id}/{ans}")
+	public ResponseEntity<Map<String, Object>> findpass(@PathVariable String id, @PathVariable String ans) {
 		try {
 			String rightans = service.searchPass(id);
-			return response(rightans, HttpStatus.OK, true);
+			if(rightans.equals(ans)) {
+				return response(service.findpass(id).getPw(), HttpStatus.OK, true);
+			}else {
+				return response("wrong", HttpStatus.OK, false);
+			}
 		} catch (RuntimeException e) {
 			return response("Get BoardDetail Error", HttpStatus.CONFLICT, true);
 		}

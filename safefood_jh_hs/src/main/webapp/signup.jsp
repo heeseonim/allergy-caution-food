@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +24,7 @@
 </head>
 <body>
 	<jsp:include page="header.jsp"></jsp:include>
-	
+
 	<div id="login_form" class="login container">
 		<form class="form-horizontal" method="post" action="signup.do">
 			<div class="login_title">
@@ -67,31 +67,52 @@
 				</div>
 			</div>
 			<div class="form-group">
+				<label for="inputid3" class="col-sm-4 control-label">비밀번호 찾기 질문</label>
+				<div class="col-sm-5">
+					<select class="form-control ">
+						<option>고르세요</option>
+						<option>부모님성함</option>
+						<option>초등학교 이름</option>
+						<option>좌우명</option>
+						<option>기타</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label for="inputid3" class="col-sm-4 control-label">비밀번호 찾기 정답</label>
+				<div class="col-sm-5">
+					<input type="text" class="form-control" name="ans">
+				</div>
+			</div>
+			<div class="form-group">
 				<label for="inputid3" class="col-sm-4 control-label">알러지</label>
 				<div class="col-sm-5">
 					<div class="checkbox">
-					<label> <input type="checkbox" name="allergy" value="대두">대두&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="땅콩">땅콩&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="우유">우유&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="게">게&nbsp;</label>
-					<label> <input type="checkbox" name="allergy" value="새우">새우&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="참치">참치&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="연어">연어&nbsp;&nbsp; </label>
-					<label> <input type="checkbox" name="allergy" value="쑥">쑥&nbsp;</label><br>
-					<label> <input type="checkbox" name="allergy" value="소고기">소고기 </label>
-					<label> <input type="checkbox" name="allergy" value="닭고기">닭고기 </label>
-					<label> <input type="checkbox" name="allergy" value="돼지고기">돼지고기&nbsp;</label>
-					<label> <input type="checkbox" name="allergy" value="복숭아">복숭아 </label>
-					<label> <input type="checkbox" name="allergy" value="민들레">민들레 </label>
-					<label> <input type="checkbox" name="allergy" value="계란흰자">계란흰자 </label>
+						<label> <input type="checkbox" name="allergy" value="대두">대두&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="땅콩">땅콩&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="우유">우유&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="게">게&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="새우">새우&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="참치">참치&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="연어">연어&nbsp;&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="쑥">쑥&nbsp;
+						</label><br> <label> <input type="checkbox" name="allergy"
+							value="소고기">소고기
+						</label> <label> <input type="checkbox" name="allergy" value="닭고기">닭고기
+						</label> <label> <input type="checkbox" name="allergy"
+							value="돼지고기">돼지고기&nbsp;
+						</label> <label> <input type="checkbox" name="allergy" value="복숭아">복숭아
+						</label> <label> <input type="checkbox" name="allergy" value="민들레">민들레
+						</label> <label> <input type="checkbox" name="allergy"
+							value="계란흰자">계란흰자
+						</label>
 					</div>
 				</div>
 			</div>
 			<div class="form-group" id="login_buttons">
 				<div style="height: 10px"></div>
 				<div class="row">
-					<div class="col-sm-5">
-					</div>
+					<div class="col-sm-5"></div>
 					<div class="col-sm-2">
 						<button type="submit" class="btn btn-default mybutton" id="bt">회원가입</button>
 					</div>

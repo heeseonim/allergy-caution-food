@@ -13,4 +13,5 @@ public interface MemberDao {
 	int deleteMember(String id);
 	List<Member> searchAll();
 	String searchPass(String id);
+	Member findpass(String id);
 }

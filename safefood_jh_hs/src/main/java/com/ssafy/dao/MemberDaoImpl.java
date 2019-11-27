@@ -49,5 +49,10 @@ public class MemberDaoImpl implements MemberDao {
 	public String searchPass(String id) {
 		return session.selectOne(ns+"searchPass", id);
 	}
+
+	@Override
+	public Member findpass(String id) {
+		return session.selectOne(ns+"LoginMember", id);
+	}
 	
 }
