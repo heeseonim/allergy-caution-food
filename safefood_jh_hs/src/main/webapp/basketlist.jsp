@@ -66,11 +66,39 @@
 				<button type="button" id="add" class="btn btn-default">섭취</button>
 				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
 			</form>
+		<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
 		</div>
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Element", "Density", { role: "style" } ],
+        ["Copper", 8.94, "#b87333"],
+        ["Silver", 10.49, "silver"],
+        ["Gold", 19.30, "gold"],
+        ["Platinum", 21.45, "color: #e5e4e2"]
+      ]);
+
+      var view = new google.visualization.DataView(data);
+     
+      var options = {
+        title: "Density of Precious Metals, in g/cm^3",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
 
 <script>
 	let array = [];
@@ -177,4 +205,7 @@
 	
 	
 </script>
+
+
+
 </html>
