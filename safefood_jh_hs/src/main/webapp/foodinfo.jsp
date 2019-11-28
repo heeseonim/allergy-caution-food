@@ -106,7 +106,7 @@
 								<td>${foodview.fat}</td>
 							</tr>
 							<tr>
-								<td><span class="high_light"><b>섵탕</b></span></td>
+								<td><span class="high_light"><b>당류</b></span></td>
 								<td>${foodview.sugar}</td>
 							</tr>
 							<tr>

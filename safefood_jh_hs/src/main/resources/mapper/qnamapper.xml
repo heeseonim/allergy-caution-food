@@ -51,6 +51,8 @@
 		delete from comment where commentno = #{commentno}
 	</delete>
 	
-	
+	<select id="sum" parameterType="string" resultType="food">
+		select sum(natrium) as natrium, sum(carbo) as carbo, sum(fat) as fat, sum(protein) as protein, sum(sugar) as sugar from foodinfo where name in (#{a})
+	</select>
 	
 </mapper>

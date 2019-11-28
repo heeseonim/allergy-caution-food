@@ -136,9 +136,17 @@ public class MainController {
 	public String doList(HttpSession session) {
 
 		List<Food> f = fservice.searchAll();
-		List<Food> foodByF = fservice.searchByFrequency();
+		List<Food> foodByF = fservice.searchAll();
 		session.setAttribute("foods", f);
-		session.setAttribute("foodByF", foodByF);
+		
+		quickSort(foodByF, 0, f.size()-1);
+		List<Food> resultFood = new ArrayList<Food>();
+		int index = 0;
+		while(index < 5) {
+			resultFood.add(foodByF.get(index));
+			index++;
+		}
+		session.setAttribute("foodByF", resultFood);
 		session.setAttribute("data", "true");
 
 		return "foodlist";

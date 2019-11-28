@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.ssafy.vo.Board;
 import com.ssafy.vo.Comment;
+import com.ssafy.vo.Food;
 import com.ssafy.vo.PageBean;
 
 public interface QnABoardService {
@@ -32,5 +33,7 @@ public interface QnABoardService {
 	public int commentinsert(Comment comment);
 
 	public int commentdelete(int commentno);
+	
+	public Food sumFood(String a);
 
 }

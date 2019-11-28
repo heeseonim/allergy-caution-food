@@ -14,8 +14,7 @@
 	</select>
 	
 	<select id="searchAll" resultType="food">
-		select *
-		from foodinfo;
+		select * from foodinfo;
 	</select>
 	
 	<!-- searchAllBean -->
@@ -65,7 +64,7 @@
 	</insert>
 	
 	<select id="searchByFrequency" resultType="food">
-		select * from foodinfo order by frequency desc limit 5
+		select * from foodinfo
 	</select>
 	
 </mapper>

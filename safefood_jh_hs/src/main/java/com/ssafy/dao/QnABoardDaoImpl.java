@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.ssafy.vo.Board;
 import com.ssafy.vo.Comment;
+import com.ssafy.vo.Food;
 import com.ssafy.vo.PageBean;
 
 
@@ -69,6 +70,11 @@ public class QnABoardDaoImpl implements QnABoardDao{
 	@Override
 	public int commentdelete(int commentno) {
 		return session.delete(namespace+"commentdelete", commentno);
+	}
+
+	@Override
+	public Food sumFood(String a) {
+		return session.selectOne(namespace+"sum", a);
 	}
 
 

@@ -41,55 +41,66 @@
 	<jsp:include page="header.jsp"></jsp:include>
 
 	<div id="detail">
-		<div class="container" style="width: 800px">
-			<h1 class="text-center">
-				<span class="high_light">찜 목록</span>
-			</h1>
-			<br>
-			<form id="jjimform" class="form-horizontal">
-				<table class="table table-hover">
-					<tr>
-						<th>이미지</th>
-						<th>상품명</th>
-						<th>수량</th>
-						<th>선택</th>
-					</tr>
-					<tbody id="basketlist">
-						
-					</tbody>
+		<div class="container">
+			<table>
+				<tr>
+				<td>
+				<div class="container" style="width: 800px">
+					<h1 class="text-center">
+						<span class="high_light">찜 목록</span>
+					</h1>
+					<br>
+					<form id="jjimform" class="form-horizontal">
+						<table class="table table-hover">
+							<tr>
+								<th>이미지</th>
+								<th>상품명</th>
+								<th>수량</th>
+								<th>선택</th>
+							</tr>
+							<tbody id="basketlist">
 
-				</table>
-				<span>선택한 상품의 총 칼로리는 ?</span>
-				<span id="bar">0</span>
-				<span>Kcal</span>
-				<hr>
-				<button type="button" id="add" class="btn btn-default">섭취</button>
-				<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
-			</form>
-		<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+							</tbody>
+
+						</table>
+						<span>선택한 상품의 총 칼로리는 ?</span> <span id="bar">0</span> <span>Kcal</span>
+						<hr>
+						<button type="button" id="add" class="btn btn-default">섭취</button>
+						<button type="button" id="deletebasket" class="btn btn-default">삭제</button>
+					</form>
+				</div>
+				</td>
+				<td>
+				<div id="columnchart_values" style="width: 900px; height: 300px;"></div>
+				</td>
+	</tr>
+			</table>
 		</div>
 	</div>
 
 	<jsp:include page="footer.jsp"></jsp:include>
 </body>
 
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  <script type="text/javascript">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
     google.charts.load("current", {packages:['corechart']});
     google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
+    
+    function drawChart(carbo, protein, fat, sugar, natrium) {
+    	if(typeof(carbo)!="number") return;
       var data = google.visualization.arrayToDataTable([
         ["Element", "Density", { role: "style" } ],
-        ["Copper", 8.94, "#b87333"],
-        ["Silver", 10.49, "silver"],
-        ["Gold", 19.30, "gold"],
-        ["Platinum", 21.45, "color: #e5e4e2"]
+        ["탄수화물", carbo, "#b87333"],
+        ["단백질", protein, "silver"],
+        ["지방", fat, "gold"],
+        ["당류", sugar, "color: #e5e4e2"],
+        ["나트륨", natrium, "orange"]
       ]);
 
       var view = new google.visualization.DataView(data);
      
       var options = {
-        title: "Density of Precious Metals, in g/cm^3",
+        title: "선택한 상품에 포함된 영양소 통계",
         width: 600,
         height: 400,
         bar: {groupWidth: "95%"},
@@ -185,7 +196,14 @@
 	});
 	
 	// 칼로리 계산 함수
-	let sum = 0;	
+	let sum = 0;
+	let result = [];
+	let c1 = 0;
+	let c2 = 0;
+	let c3 = 0;
+	let c4 = 0;
+	let c5 = 0;
+	
 	$("#basketlist").on("click", 'input:checkbox', function() {
 		let p = [];
 		p = $(this).val().split(",");
@@ -195,15 +213,43 @@
 			sum += Math.floor(Number(p[2])) * n;
 			$("#bar").empty();
 			$("#bar").append(sum);
+			result.push(p[1]+"."+n);
+			getDetail(result.toString());
 		} else {
 			var n = document.getElementById("num"+p[0]).value;
 			sum -= Math.floor(Number(p[2])) * n;
 			$("#bar").empty();
 			$("#bar").append(sum);
-		}	
+			result.splice(result.indexOf(p[1]+"."+n),1);
+			getDetail(result.toString());				
+		}
 	});
 	
-	
+	function getDetail(a){
+		$.ajax({
+			url:"/sumFood/"+a,
+			type:"get",
+			success:function(res){
+				console.log(res);
+				c1 = res.data.carbo;
+				c2 = res.data.fat;
+				c3 = res.data.natrium;
+				c4 = res.data.protein;
+				c5 = res.data.sugar;
+				
+				drawChart(c1, c4, c2, c5, c3);
+			},
+			error:function(e){
+				console.log("에러",e);
+				c1 = 0;
+				c2 = 0;
+				c3 = 0;
+				c4 = 0;
+				c5 = 0;
+				drawChart(c1, c4, c2, c5, c3);
+			}
+		});
+	};	
 </script>
 
 

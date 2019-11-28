@@ -43,4 +43,15 @@ public class Food {
 	/**클릭 빈도*/
 	protected int frequency;
 	
+	public Food(double carbo, double protein, double fat, double sugar, double natrium) {
+		super();
+		this.carbo = carbo;
+		this.protein = protein;
+		this.fat = fat;
+		this.sugar = sugar;
+		this.natrium = natrium;
+	}
+	
+	
+	
 }

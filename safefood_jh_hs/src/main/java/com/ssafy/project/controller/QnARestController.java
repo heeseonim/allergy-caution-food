@@ -3,6 +3,7 @@ package com.ssafy.project.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 
 import javax.servlet.http.HttpSession;
 
@@ -24,6 +25,7 @@ import com.ssafy.service.MemberService;
 import com.ssafy.service.QnABoardService;
 import com.ssafy.vo.Board;
 import com.ssafy.vo.Comment;
+import com.ssafy.vo.Food;
 import com.ssafy.vo.Member;
 import com.ssafy.vo.PageBean;
 
@@ -167,6 +169,33 @@ public class QnARestController {
 			}else {
 				return response("wrong", HttpStatus.OK, false);
 			}
+		} catch (RuntimeException e) {
+			return response("Get BoardDetail Error", HttpStatus.CONFLICT, true);
+		}
+	}
+	
+	@GetMapping("/sumFood/{a}")
+	public ResponseEntity<Map<String, Object>> sumFood(@PathVariable String a) {
+		try {
+			String[]str = a.split(",");
+			double carbo = 0;
+			double protein = 0;
+			double fat =0;
+			double sugar=0;
+			double natrium=0;
+			for (int i = 0; i < str.length; i++) {
+				StringTokenizer st = new StringTokenizer(str[i], ".");
+				String ss = st.nextToken();
+				int n = Integer.parseInt(st.nextToken());
+				Food temp = bs.sumFood(ss);
+				carbo += temp.getCarbo()*n;
+				protein += temp.getProtein()*n;
+				fat += temp.getFat()*n;
+				sugar += temp.getSugar()*n;
+				natrium += temp.getNatrium()*n;
+			}
+			Food f = new Food(carbo, protein, fat, sugar, natrium);
+			return response(f, HttpStatus.OK, true);
 		} catch (RuntimeException e) {
 			return response("Get BoardDetail Error", HttpStatus.CONFLICT, true);
 		}
